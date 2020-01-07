@@ -1,0 +1,33 @@
+.basket li {
+    float: right;
+    padding-right: 40px;
+}
+.back3 {
+    background-image: url("/public/back3.jpg");
+}
+
+.save-item {
+    margin-left: 100px;
+    margin-top: 100px;
+    line-height: 20px;
+
+}
+
+.save-item h1{
+    font-size: 90px;
+    line-height: 50px;
+    font-weight: bolder;
+    color: #fa541c;
+}
+
+.save-item p {
+    font-size: 50px;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+}
+
+.product-cards {
+    animation-duration: 3s;
+    animation-delay: 2s;
+}
+

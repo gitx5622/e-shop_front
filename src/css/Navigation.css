@@ -1,0 +1,17 @@
+.top-header {
+    padding-top: 8px;
+    color: white;
+}
+.top-header li {
+    display: inline;
+    padding-left: 20px;
+}
+.ant-dropdown-link {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .top-header {
+        display: none;
+    }
+}
