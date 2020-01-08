@@ -25,8 +25,7 @@
 
 @media (max-width: 768px) {
     .product-cards .card {
-        margin-left: 70px;
-        padding-bottom: 10px;
+        padding: 20px;
     }
     .save-item h1{
         font-size: 50px;

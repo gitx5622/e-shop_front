@@ -6,7 +6,10 @@ import delivery from '../assests/delivery.png';
 import daily from '../assests/daily.png';
 import festival from '../assests/festival.png';
 import back3 from '../assests/back3.jpg';
-
+import pic1 from '../assests/pic1.jpg';
+import pic2 from '../assests/pic2.jpg';
+import pic3 from '../assests/pic3.jpg';
+import pic4 from '../assests/pic4.jpg';
 const { Meta } = Card;
 
 class MainBody extends Component {
@@ -110,8 +113,8 @@ class MainBody extends Component {
                             <div className="col-sm">
                                 <Card className="card"
                                     hoverable
-                                    style={{ width: 240,marginBottom:"15px" }}
-                                    cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                                    style={{marginBottom:"15px" }}
+                                    cover={<img alt="example" src={pic1} />}
                                 >
                                     <Meta title="Europe Street beat" description="www.instagram.com" />
                                 </Card>
@@ -119,8 +122,8 @@ class MainBody extends Component {
                             <div className="col-sm">
                                 <Card className="card"
                                     hoverable
-                                    style={{ width: 240 }}
-                                    cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+
+                                    cover={<img alt="example" src={pic3} />}
                                 >
                                     <Meta title="Europe Street beat" description="www.instagram.com" />
                                 </Card>,
@@ -128,8 +131,7 @@ class MainBody extends Component {
                             <div className="col-sm">
                                 <Card className="card"
                                     hoverable
-                                    style={{ width: 240 }}
-                                    cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                                    cover={<img alt="example" src={pic2}/>}
                                 >
                                     <Meta title="Europe Street beat" description="www.instagram.com" />
                                 </Card>,
@@ -137,8 +139,8 @@ class MainBody extends Component {
                             <div className="col-sm">
                                 <Card className="card"
                                     hoverable
-                                    style={{ width: 240 }}
-                                    cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+
+                                    cover={<img alt="example" src={pic4} />}
                                 >
                                     <Meta title="Europe Street beat" description="www.instagram.com" />
                                 </Card>,
