@@ -14,7 +14,7 @@ export const SignUp = (newUser) => {
             dispatch({type: SIGNUP_SUCCESS});
             history.push("/login");
         }catch (err) {
-            dispatch({type:SIGNUP_ERROR,payload:err.response.data.error});
+            dispatch({type:SIGNUP_ERROR,payload:err.response});
         }
     }
 
@@ -31,7 +31,7 @@ export const SignIn = (credentials) => {
             setAuthorizationToken(userData.token);
             dispatch({type: LOGIN_SUCCESS, payload: userData});
         }catch (err) {
-            dispatch({type:LOGIN_ERROR, payload: err.response.data.error})
+            dispatch({type:LOGIN_ERROR, payload: err.response})
         }
     }
 
