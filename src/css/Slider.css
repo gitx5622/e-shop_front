@@ -22,6 +22,7 @@
 .btn-solid {
     padding: 13px 29px;
     color: #fff;
+
     border-radius: unset;
     letter-spacing: 0.05em;
     border: 2px solid #ff4c3b;
@@ -38,4 +39,50 @@
     background-position: 100%;
     color: #000000;
     background-color: #ffffff;
+}
+
+
+@media (max-width: 768px) {
+    .image {
+        height: 300px;
+    }
+
+
+
+    .btn-solid {
+        padding: 5px 15px;
+        color: #fff;
+        border-radius: unset;
+        letter-spacing: 0.05em;
+        border: 2px solid #ff4c3b;
+        background-image: -webkit-linear-gradient(30deg, #ff4c3b 50%, transparent 50%);
+        background-image: linear-gradient(30deg, #ff4c3b 50%, transparent 50%);
+        background-size: 540px;
+        background-repeat: no-repeat;
+        background-position: 0;
+        -webkit-transition: background 300ms ease-in-out;
+        transition: background 300ms ease-in-out;
+    }
+
+    .btn-solid:hover {
+        background-position: 100%;
+        color: #000000;
+        background-color: #ffffff;
+    }
+
+    .carousel-caption p {
+        bottom: 50%;
+        right: 70%;
+        font-size: 10px;
+        font-family: 'Roboto', sans-serif;
+        letter-spacing: 0.5em;
+    }
+    .carousel-caption h1 {
+        bottom: 50%;
+        right: 70%;
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+    }
+
+
 }

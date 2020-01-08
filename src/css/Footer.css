@@ -52,14 +52,36 @@ li {
 @media (max-width: 768px) {
     footer .footer-logo {
         width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
     }
     footer .links {
         width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
     }
     footer .category {
         width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
     }
     footer .store-info {
         width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .subscribe h3 {
+        font-size: 20px;
+    }
+    .subscribe form {
+        margin-left: 0%;
+        width: 200px;
+    }
+    .subscribe input {
+        height: 40px;
+        margin-bottom: 10px;
+    }
+    .btn-solid {
+        margin-left: 25px;
     }
 }

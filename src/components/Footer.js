@@ -19,9 +19,9 @@ class Footer extends Component {
                 <div className="row" style={{background:"whitesmoke"}}>
                         <div className="container">
                             <div className="subscribe">
+                            <center>
                             <h3><Icon type="message"  theme="twoTone" twoToneColor="#ff7a45" /> NEWSLETTER</h3>
-                            <form action="" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
-                                  className="validate form-inline subscribe-form" target="_blank" noValidate="">
+                            <form className="validate form-inline subscribe-form">
                                 <input type="email" className="required email form-control" name="EMAIL"
                                                placeholder="Enter Your Email" id="mce-EMAIL" required=""/>&nbsp; &nbsp;
                                     <button type="submit" className="btn btn-solid" name="subscribe"
@@ -29,6 +29,7 @@ class Footer extends Component {
                                             data-trans-key="general.newsletter_form.submit">Subscribe
                                     </button>
                             </form>
+                            </center>
                         </div>
                      <hr/>
                     <Row>
@@ -82,7 +83,7 @@ class Footer extends Component {
                     </Row>
                 </div>
                 </div>
-                <div className="row">
+                <div className="row d-none d-md-block">
                     <div className="container">
                         <div className="bottom-footer">
                             <ul>

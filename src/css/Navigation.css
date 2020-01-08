@@ -10,8 +10,17 @@
     color: white;
 }
 
+.basket li {
+    float: right;
+}
+
 @media (max-width: 768px) {
     .top-header {
         display: none;
     }
+    .basket li {
+        display: inline;
+        padding-right: 20px;
+    }
+
 }

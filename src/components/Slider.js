@@ -10,8 +10,8 @@ class Slider extends Component {
         return (
             <div id="carouselExampleInterval" className="carousel slide" data-ride="carousel">
                 <div className="carousel-inner">
-                    <div className="carousel-item active" data-interval="10000">
-                        <img src={back1} className="d-block w-100" alt="..."/>
+                    <div className="carousel-item active" data-interval="5000">
+                        <img src={back1} className="image d-block w-100" alt="..."/>
                         <div className="carousel-caption">
                             <center>
                             <p>Special Offer</p>
@@ -24,7 +24,7 @@ class Slider extends Component {
                         </div>
                     </div>
                     <div className="carousel-item" data-interval="2000">
-                        <img src={back2} className="d-block w-100" alt="..."/>
+                        <img src={back2} className="image d-block w-100" alt="..."/>
                         <div className="carousel-caption">
                             <p>Save 20% on </p>
                             <h1><strong>FRESH FRUITS</strong></h1>
@@ -35,7 +35,7 @@ class Slider extends Component {
                         </div>
                     </div>
                     <div className="carousel-item" data-interval="2000">
-                        <img src={back4} className="d-block w-100" alt="..."/>
+                        <img src={back4} className="image d-block w-100" alt="..."/>
                         <div className="carousel-caption">
                             <p>Save 20% on </p>
                             <h1><strong>FRESH FRUITS</strong></h1>

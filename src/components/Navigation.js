@@ -56,14 +56,14 @@ const Navigation = () => {
                     </div>
                 </div>
             <div className="container">
-                <div className="row p-4">
+                <div className="row logo-basket p-4">
                     <div className="col">
                         <ul>
                             <li><a href="/"><img src={logo} alt="logo" width="80px" height="40px"/></a></li>
                         </ul>
                     </div>
                     <div className="col">
-                        <div className="basket">
+                        <div className="basket d-none d-md-block">
                             <ul>
                                 <li><i className="fa fa-shopping-basket fa-2x" aria-hidden="true"/> <a href="/">
                                     <Badge count={5}>
@@ -75,6 +75,16 @@ const Navigation = () => {
                                 <li>PAGES</li>
                                 <li>SHOP</li>
                                 <li>HOME</li>
+                            </ul>
+                        </div>
+                        <div className="basket d-block d-md-none">
+                            <ul>
+                                <li><i className="fa fa-shopping-basket fa-2x" aria-hidden="true"/> <a href="/">
+                                    <Badge count={5}>
+                                        <span className="head-example" />
+                                    </Badge>
+                                </a></li>
+                                <li><i className="fa fa-cog fa-2x" aria-hidden="true"/></li>
                             </ul>
                         </div>
                     </div>

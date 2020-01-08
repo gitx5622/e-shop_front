@@ -50,13 +50,13 @@ class MainBody extends Component {
                             </div>
                     </div>
                 </div>
-                <div className='back3'  style={{ backgroundImage:`url(${back3})`,backgroundAttachment: "fixed",backgroundRepeat: "no-repeat",backgroundSize:"cover" }}>
+                <div className='back3 d-none d-md-block'  style={{ backgroundImage:`url(${back3})`,backgroundAttachment: "fixed",backgroundRepeat: "no-repeat",backgroundSize:"cover" }}>
                 <div className="row" style={{background:"white"}}>
                 <div className="container" style={{background: "white", zIndex:"1000px"}}>
                     <center><h1 style={{fontFamily:'Roboto',}}>Product List</h1></center>
                     <div className="row product-cards animated zoomInLeft">
                         <div className="col-sm">
-                            <Card
+                            <Card className="card"
                                 hoverable
                                 style={{ width: 240 }}
                                 cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
@@ -65,7 +65,7 @@ class MainBody extends Component {
                             </Card>
                         </div>
                         <div className="col-sm">
-                            <Card
+                            <Card className="card"
                                 hoverable
                                 style={{ width: 240 }}
                                 cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
@@ -74,7 +74,7 @@ class MainBody extends Component {
                             </Card>,
                         </div>
                         <div className="col-sm">
-                            <Card
+                            <Card className="card"
                                 hoverable
                                 style={{ width: 240 }}
                                 cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
@@ -83,7 +83,7 @@ class MainBody extends Component {
                             </Card>,
                         </div>
                         <div className="col-sm">
-                            <Card
+                            <Card className="card"
                                 hoverable
                                 style={{ width: 240 }}
                                 cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
@@ -104,20 +104,20 @@ class MainBody extends Component {
                 </div>
 
                 <div className="row" style={{background:"white"}}>
-                    <div className="container" style={{background: "white", zIndex:"1000px"}}>
+                    <div className="container">
                         <center><h1 style={{fontFamily:'Roboto',}}>Product List</h1></center>
                         <div className="row product-cards animated zoomInDown">
                             <div className="col-sm">
-                                <Card
+                                <Card className="card"
                                     hoverable
-                                    style={{ width: 240 }}
+                                    style={{ width: 240,marginBottom:"15px" }}
                                     cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
                                 >
                                     <Meta title="Europe Street beat" description="www.instagram.com" />
                                 </Card>
                             </div>
                             <div className="col-sm">
-                                <Card
+                                <Card className="card"
                                     hoverable
                                     style={{ width: 240 }}
                                     cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
@@ -126,7 +126,7 @@ class MainBody extends Component {
                                 </Card>,
                             </div>
                             <div className="col-sm">
-                                <Card
+                                <Card className="card"
                                     hoverable
                                     style={{ width: 240 }}
                                     cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
@@ -135,7 +135,7 @@ class MainBody extends Component {
                                 </Card>,
                             </div>
                             <div className="col-sm">
-                                <Card
+                                <Card className="card"
                                     hoverable
                                     style={{ width: 240 }}
                                     cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}

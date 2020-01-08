@@ -1,11 +1,3 @@
-.basket li {
-    float: right;
-    padding-right: 40px;
-}
-.back3 {
-    background-image: url("/public/back3.jpg");
-}
-
 .save-item {
     margin-left: 100px;
     margin-top: 100px;
@@ -31,3 +23,25 @@
     animation-delay: 2s;
 }
 
+@media (max-width: 768px) {
+    .product-cards .card {
+        margin-left: 70px;
+        padding-bottom: 10px;
+    }
+    .save-item h1{
+        font-size: 50px;
+        line-height: 50px;
+        font-weight: bolder;
+        color: #fa541c;
+    }
+
+    .save-item p {
+        font-size: 20px;
+        font-family: 'Roboto', sans-serif;
+        color: black;
+    }
+    .back3 {
+        background-size: cover;
+    }
+
+}
