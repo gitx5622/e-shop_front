@@ -9,7 +9,7 @@ const Navigation = () => {
 
     const currentState = useSelector((state) => state);
 
-    const { isAuthenticated, currentUser } = currentState.Auth;
+    const { isAuthenticated } = currentState.Auth;
 
     const dispatch = useDispatch();
 
@@ -65,12 +65,12 @@ const Navigation = () => {
                     <div className="col">
                         <div className="basket d-none d-md-block">
                             <ul>
+                                <li><i className="fa fa-user fa-2x" aria-hidden="true"/></li>
                                 <li><i className="fa fa-shopping-basket fa-2x" aria-hidden="true"/> <a href="/">
                                     <Badge count={5}>
                                         <span className="head-example" />
                                     </Badge>
                                 </a></li>
-                                <li><i className="fa fa-cog fa-2x" aria-hidden="true"/></li>
                                 <li>BLOG</li>
                                 <li>PAGES</li>
                                 <li>SHOP</li>
@@ -79,12 +79,13 @@ const Navigation = () => {
                         </div>
                         <div className="basket d-block d-md-none">
                             <ul>
+                                <li><i className="fa fa-user fa-2x" aria-hidden="true"/></li>
                                 <li><i className="fa fa-shopping-basket fa-2x" aria-hidden="true"/> <a href="/">
                                     <Badge count={5}>
                                         <span className="head-example" />
                                     </Badge>
                                 </a></li>
-                                <li><i className="fa fa-cog fa-2x" aria-hidden="true"/></li>
+
                             </ul>
                         </div>
                     </div>

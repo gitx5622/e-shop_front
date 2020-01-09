@@ -1,4 +1,4 @@
-import React, {Component, useEffect} from 'react';
+import React, {Component} from 'react';
 import Slider from "./Slider";
 import {Col, Card} from 'antd';
 import delivery from '../assests/delivery.png';
@@ -73,51 +73,75 @@ class MainBody extends Component {
                         </div>
                     </div>
                 </div>
-                <div className='back3 d-none d-md-block'  style={{ backgroundImage:`url(${back3})`,backgroundAttachment: "fixed",backgroundRepeat: "no-repeat",backgroundSize:"cover" }}>
+                <div className='back3 d-none d-md-block'  style={{ backgroundImage:`url(${back3})`,backgroundAttachment: "fixed",
+                    backgroundRepeat: "no-repeat",backgroundSize:"cover" }}>
                     <div className="row" style={{background:"white"}}>
                         <div className="container" style={{background: "white", zIndex:"1000px"}}>
                             <center><h1 style={{fontFamily:'Roboto',}}>Product List</h1></center>
-                            <div className="row product-cards animated zoomInLeft">
-                                <div className="col-sm">
-                                    <Card className="card"
-                                          hoverable
-                                          style={{ width: 240 }}
-                                          cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                                    >
-                                        <Meta title="Europe Street beat" description="www.instagram.com" />
-                                    </Card>
+                            <div className="row" style={{marginTop: "20px"}}>
+                                {data.slice(4, 8).map(product=>{ return (
+                                    <div key={product.title} className="col-md-3 sm-6">
+                                        <div className="product-grid4">
+                                            <div className="product-image4">
+                                                <a href="javasript:;" onClick={() => this.props.history.push(`product/${product.id}/`)}>
+                                                    <img className="pic-1" src={product.image_url_1} alt="#"/>
+                                                    <img className="pic-2" src={product.image_url_2} alt="#"/>
+                                                </a>
+                                                <ul className="social">
+                                                    <li><a href="javasript:;" data-tip="View Product"
+                                                           onClick={() => this.props.history.push(`product/${product.id}/`)}
+                                                           producta-tip="Quick View"><i className="fa fa-eye"/></a></li>
+                                                    <li><a href="/login" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"/></a></li>
+                                                    <li><a href="/login" data-tip="Add to Cart"><i className="fa fa-shopping-cart"/></a></li>
+                                                </ul>
+                                                <span className="product-new-label">New</span>
+                                                <span className="product-discount-label">{product.discount_price}%</span>
+                                            </div>
+                                            <div className="product-content">
+                                                <h3 className="title"><a href="/login">{product.title}</a></h3>
+                                                <div className="price">
+                                                    $ {product.price} &nbsp;
+                                                    <span>20.00</span>
+                                                </div>
+
+                                                <button className="add-to-cart" onClick={(e)=>
+                                                {if(window.confirm('Your item has been added to Cart')){this.handleAddToCart(e, product)}}}>ADD TO CART</button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                )})}
+                            </div>
+
+                            <div className="row" style={{marginTop: "20px"}}>
+                                {data.slice(8, 12).map(product=>{ return (
+                            <div className="col-md-3 col-sm-6">
+                                <div className="product-grid6">
+                                    <div className="product-image6">
+                                        <a href="#">
+                                            <img className="pic-1" src={product.image_url_1}  alt="..."/>
+                                        </a>
+                                    </div>
+                                    <div className="product-content">
+                                        <h3 className="title"><a href="#">{product.title}</a></h3>
+                                        <div className="price">{product.price}
+                                            <span>$14.00</span>
+                                        </div>
+                                    </div>
+                                    <ul className="social">
+                                        <li><a href="" data-tip="Quick View"><i className="fa fa-search"/></a></li>
+                                        <li><a href="" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"/></a>
+                                        </li>
+                                        <li><a href="" data-tip="Add to Cart"><i className="fa fa-shopping-cart"/></a></li>
+                                    </ul>
                                 </div>
-                                <div className="col-sm">
-                                    <Card className="card"
-                                          hoverable
-                                          style={{ width: 240 }}
-                                          cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                                    >
-                                        <Meta title="Europe Street beat" description="www.instagram.com" />
-                                    </Card>,
-                                </div>
-                                <div className="col-sm">
-                                    <Card className="card"
-                                          hoverable
-                                          style={{ width: 240 }}
-                                          cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                                    >
-                                        <Meta title="Europe Street beat" description="www.instagram.com" />
-                                    </Card>,
-                                </div>
-                                <div className="col-sm">
-                                    <Card className="card"
-                                          hoverable
-                                          style={{ width: 240 }}
-                                          cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                                    >
-                                        <Meta title="Europe Street beat" description="www.instagram.com" />
-                                    </Card>
-                                </div>
+                            </div>
+                                )})}
                             </div>
                         </div>
                     </div>
-                    <div style={{height:"400px"}}>
+
+                    <div style={{height:"300px"}}>
                         <div className="save-item">
                             <h1>SAVE 10% </h1>
                             <p><strong>ON FOOD MARKET</strong></p>
@@ -128,9 +152,8 @@ class MainBody extends Component {
 
                 <div className="row" style={{background:"white"}}>
                     <div className="container">
-                        <center><h1 style={{fontFamily:'Roboto',}}>Product List</h1></center>
                         <div className="row" style={{marginTop: "20px"}}>
-                            {data.map(product=>{ return (
+                            {data.slice(0, 4).map(product=>{ return (
                                 <div key={product.title} className="col-md-3 sm-6">
                                     <div className="product-grid4">
                                         <div className="product-image4">
@@ -139,9 +162,10 @@ class MainBody extends Component {
                                                 <img className="pic-2" src={product.image_url_2} alt="#"/>
                                             </a>
                                             <ul className="social">
-                                                <li><a href="javasript:;" onClick={() => this.props.history.push(`product/${product.id}/`)} producta-tip="Quick View"><i className="fa fa-eye"></i></a></li>
-                                                <li><a href="/login" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"></i></a></li>
-                                                <li><a href="/login" data-tip="Add to Cart"><i className="fa fa-shopping-cart"></i></a></li>
+                                                <li><a href="javasript:;" data-tip="View Product" onClick={() =>
+                                                    this.props.history.push(`product/${product.id}/`)} producta-tip="Quick View"><i className="fa fa-eye"/></a></li>
+                                                <li><a href="/login" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"/></a></li>
+                                                <li><a href="/login" data-tip="Add to Cart"><i className="fa fa-shopping-cart"/></a></li>
                                             </ul>
                                             <span className="product-new-label">New</span>
                                             <span className="product-discount-label">{product.discount_price}%</span>
@@ -153,7 +177,8 @@ class MainBody extends Component {
                                                 <span>20.00</span>
                                             </div>
 
-                                            <button className="add-to-cart" onClick={(e)=>{if(window.confirm('Your item has been added to Cart')){this.handleAddToCart(e, product)}}}>ADD TO CART</button>
+                                            <button className="add-to-cart" onClick={(e)=>
+                                            {if(window.confirm('Your item has been added to Cart')){this.handleAddToCart(e, product)}}}>ADD TO CART</button>
 
                                         </div>
                                     </div>

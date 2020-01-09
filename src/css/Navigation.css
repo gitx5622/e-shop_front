@@ -12,6 +12,8 @@
 
 .basket li {
     float: right;
+    padding-right: 20px;
+    font-family: 'Roboto', sans-serif;
 }
 
 @media (max-width: 768px) {
