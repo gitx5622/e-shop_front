@@ -7,19 +7,16 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "antd": "^3.26.6",
-    "axios": "^0.19.0",
+    "axios": "^0.19.1",
     "history": "^4.10.1",
-    "owl.carousel": "^2.3.4",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-owl-carousel2": "^0.3.0",
+    "react": "0.0.0-b53ea6ca0",
+    "react-dom": "0.0.0-b53ea6ca0",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0",
-    "lodash": "latest"
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

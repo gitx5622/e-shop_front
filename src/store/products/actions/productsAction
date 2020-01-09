@@ -1,0 +1,47 @@
+import API_ROUTE from "../../../constants";
+import axios from 'axios';
+import {
+    BEFORE_STATE_PRODUCT,
+    CREATE_PRODUCT_ERROR,
+    CREATE_PRODUCT_SUCCESS,
+    FETCH_PRODUCTS,
+    FETCH_PRODUCTS_ERROR
+} from "../actionTypes";
+import {history} from "../../../history";
+import {BEFORE_STATE} from "../../auth/actionTypes";
+
+
+export const fetchProducts = () => {
+    return async dispatch => {
+
+        dispatch({type: BEFORE_STATE});
+
+         try {
+             await axios.get(`${API_ROUTE}/getproducts`)
+                 .then(res => {
+                     dispatch({type: FETCH_PRODUCTS, payload: res.data.response})
+                 })
+         }catch(err) {
+                dispatch({type: FETCH_PRODUCTS_ERROR, payload: err.response ? err.response.data.error : ""})
+            }
+        }
+    };
+
+
+export const createProduct = (createPost) => {
+    return async (dispatch) => {
+
+        dispatch({ type: BEFORE_STATE_PRODUCT });
+
+        try {
+            const res = await axios.post(`${API_ROUTE}/createproduct`, createPost);
+            dispatch({
+                type: CREATE_PRODUCT_SUCCESS,
+                payload: res.data.response
+            });
+            history.push('/');
+        } catch(err) {
+            dispatch({ type: CREATE_PRODUCT_ERROR, payload: err.response.data.error })
+        }
+    }
+};
