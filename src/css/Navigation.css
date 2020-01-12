@@ -14,6 +14,8 @@
     float: right;
     padding-right: 20px;
     font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+
 }
 
 @media (max-width: 768px) {

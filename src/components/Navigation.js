@@ -36,7 +36,7 @@ const Navigation = () => {
     const SignedOutLinks = (
         <Menu>
             <Menu.Item>
-                <a onClick={logout}>Logout</a>
+                <a href="#/" onClick={logout}>Logout</a>
             </Menu.Item>
         </Menu>
     );
@@ -49,7 +49,7 @@ const Navigation = () => {
                         <ul className='top-header'>
                             <li> Announce something here &nbsp; &nbsp; &nbsp; <i className="fa fa-phone" aria-hidden="true"/>&nbsp; CALL US: 123-456-7890</li>
                             <li style={{float:"right", textDecoration:"none"}}><i className="fa fa-user" aria-hidden="true"/>&nbsp;
-                                <Dropdown overlay={ isAuthenticated ? SignedOutLinks: SignedInLinks }><a className="ant-dropdown-link" href="#">My Account<Icon type="down" /></a></Dropdown></li>
+                                <Dropdown overlay={ isAuthenticated ? SignedOutLinks: SignedInLinks }><a className="ant-dropdown-link" href="#/">My Account<Icon type="down" /></a></Dropdown></li>
                             <li style={{float:"right"}}><i className="fa fa-heart" aria-hidden="true"/>&nbsp; Wishlist </li>
 
                         </ul>
@@ -71,10 +71,10 @@ const Navigation = () => {
                                         <span className="head-example" />
                                     </Badge>
                                 </a></li>
-                                <li>BLOG</li>
-                                <li>PAGES</li>
-                                <li>SHOP</li>
-                                <li>HOME</li>
+                                {/*<li>BLOG</li>*/}
+                                {/*<li>PAGES</li>*/}
+                                <li><i className="fa fa-cog fa-2x" aria-hidden="true"/></li>
+                                <li><i className="fa fa-home fa-2x" aria-hidden="true"/></li>
                             </ul>
                         </div>
                         <div className="basket d-block d-md-none">

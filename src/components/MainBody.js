@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
 import Slider from "./Slider";
-import {Col, Card} from 'antd';
+import {Col} from 'antd';
 import delivery from '../assests/delivery.png';
 import daily from '../assests/daily.png';
 import festival from '../assests/festival.png';
 import back3 from '../assests/back3.jpg';
 import '../css/MainBody.css';
 import axios from 'axios';
+import API_ROUTE from "../constants";
 
-
-const { Meta } = Card;
 
 class MainBody extends Component {
     constructor(props) {
@@ -21,7 +20,7 @@ class MainBody extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://127.0.0.1:9000/getproducts")
+        axios.get(`${API_ROUTE}/getproducts`)
             .then(res=> {
                 this.setState({
                     products: res.data.response
@@ -118,21 +117,21 @@ class MainBody extends Component {
                             <div className="col-md-3 col-sm-6">
                                 <div className="product-grid6">
                                     <div className="product-image6">
-                                        <a href="#">
+                                        <a href="#/">
                                             <img className="pic-1" src={product.image_url_1}  alt="..."/>
                                         </a>
                                     </div>
                                     <div className="product-content">
-                                        <h3 className="title"><a href="#">{product.title}</a></h3>
+                                        <h3 className="title"><a href="#/">{product.title}</a></h3>
                                         <div className="price">{product.price}
                                             <span>$14.00</span>
                                         </div>
                                     </div>
                                     <ul className="social">
-                                        <li><a href="" data-tip="Quick View"><i className="fa fa-search"/></a></li>
-                                        <li><a href="" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"/></a>
+                                        <li><a href="#/" data-tip="Quick View"><i className="fa fa-search"/></a></li>
+                                        <li><a href="#/" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"/></a>
                                         </li>
-                                        <li><a href="" data-tip="Add to Cart"><i className="fa fa-shopping-cart"/></a></li>
+                                        <li><a href="#/" data-tip="Add to Cart"><i className="fa fa-shopping-cart"/></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -157,12 +156,12 @@ class MainBody extends Component {
                                 <div key={product.title} className="col-md-3 sm-6">
                                     <div className="product-grid4">
                                         <div className="product-image4">
-                                            <a href="javasript:;" onClick={() => this.props.history.push(`product/${product.id}/`)}>
+                                            <a href="#/" onClick={() => this.props.history.push(`product/${product.id}/`)}>
                                                 <img className="pic-1" src={product.image_url_1} alt="#"/>
                                                 <img className="pic-2" src={product.image_url_2} alt="#"/>
                                             </a>
                                             <ul className="social">
-                                                <li><a href="javasript:;" data-tip="View Product" onClick={() =>
+                                                <li><a href="#/" data-tip="View Product" onClick={() =>
                                                     this.props.history.push(`product/${product.id}/`)} producta-tip="Quick View"><i className="fa fa-eye"/></a></li>
                                                 <li><a href="/login" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"/></a></li>
                                                 <li><a href="/login" data-tip="Add to Cart"><i className="fa fa-shopping-cart"/></a></li>
