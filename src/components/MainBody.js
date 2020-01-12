@@ -79,7 +79,7 @@ class MainBody extends Component {
                             <center><h1 style={{fontFamily:'Roboto',}}>Product List</h1></center>
                             <div className="row" style={{marginTop: "20px"}}>
                                 {data.slice(4, 8).map(product=>{ return (
-                                    <div key={product.title} className="col-md-3 sm-6">
+                                    <div key={product.id} className="col-md-3 sm-6">
                                         <div className="product-grid4">
                                             <div className="product-image4">
                                                 <a href="javasript:;" onClick={() => this.props.history.push(`product/${product.id}/`)}>
@@ -114,7 +114,7 @@ class MainBody extends Component {
 
                             <div className="row" style={{marginTop: "20px"}}>
                                 {data.slice(8, 12).map(product=>{ return (
-                            <div className="col-md-3 col-sm-6">
+                            <div key={product.id} className="col-md-3 col-sm-6">
                                 <div className="product-grid6">
                                     <div className="product-image6">
                                         <a href="#/">
@@ -153,7 +153,7 @@ class MainBody extends Component {
                     <div className="container">
                         <div className="row" style={{marginTop: "20px"}}>
                             {data.slice(0, 4).map(product=>{ return (
-                                <div key={product.title} className="col-md-3 sm-6">
+                                <div key={product.id} className="col-md-3 sm-6">
                                     <div className="product-grid4">
                                         <div className="product-image4">
                                             <a href="#/" onClick={() => this.props.history.push(`product/${product.id}/`)}>
