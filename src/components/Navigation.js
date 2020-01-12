@@ -49,7 +49,7 @@ const Navigation = () => {
                         <ul className='top-header'>
                             <li> Announce something here &nbsp; &nbsp; &nbsp; <i className="fa fa-phone" aria-hidden="true"/>&nbsp; CALL US: 123-456-7890</li>
                             <li style={{float:"right", textDecoration:"none"}}><i className="fa fa-user" aria-hidden="true"/>&nbsp;
-                                <Dropdown overlay={ isAuthenticated ? SignedOutLinks: SignedInLinks }><a className="ant-dropdown-link" href="#/">My Account<Icon type="down" /></a></Dropdown></li>
+                                <Dropdown overlay={ isAuthenticated ? SignedOutLinks: SignedInLinks }><a className="ant-dropdown-link">My Account<Icon type="down" /></a></Dropdown></li>
                             <li style={{float:"right"}}><i className="fa fa-heart" aria-hidden="true"/>&nbsp; Wishlist </li>
 
                         </ul>

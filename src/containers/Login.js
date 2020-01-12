@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {SignIn} from "../store/auth/actions/authActions";
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 import '../css/Login.css';
+import {Alert, message} from "antd";
 
 const Login = () => {
 
@@ -35,7 +36,6 @@ const Login = () => {
     if(currentState.isAuthenticated){
         return <Redirect to='/' />
     }
-
     return (
         <div>
             <div className="row" style={{background:"whitesmoke"}}>
@@ -53,19 +53,62 @@ const Login = () => {
                     <div className="col-sm">
                         <h3><strong>LOGIN</strong></h3>
                         <form onSubmit={handleSubmit}>
+                            <div className="mb-2">
+                                { currentState.loginError && currentState.loginError.Incorrect_details ? (
+                                    <Alert message={currentState.loginError.Incorrect_details} type="error" />
+                                ) : (
+                                    ""
+                                )}
+                                { currentState.loginError && currentState.loginError.No_record ? (
+                                    <Alert message={currentState.loginError.No_record} type="error" />
+                                ) : (
+                                    ""
+                                )}
+                            </div>
                             <div className="form-group">
-                                <label htmlFor="exampleInputEmail1">Email address</label>
-                                <input type="email" className="form-control" name="email" onChange={handleChange}
-                                       aria-describedby="emailHelp"/>
+                                <label>Email address</label>
+                                <input type="email" className="form-control" name="email" onChange={handleChange}/>
+                                { currentState.loginError && currentState.loginError.Required_email ? (
 
+                                    <p className="text-danger">{currentState.loginError.Required_email}</p>
+                                ) : (
+                                    ""
+                                )}
+                                { currentState.loginError && currentState.loginError.Invalid_email ? (
+                                    <p className="text-danger">{ currentState.loginError.Invalid_email }</p>
+                                ) : (
+                                    ""
+                                )}
                             </div>
                             <div className="form-group">
-                                <label htmlFor="exampleInputPassword1">Password</label>
+                                <label>Password</label>
                                 <input type="password"  name="password" className="form-control" onChange={handleChange}/>
+                                { currentState.loginError && currentState.loginError.Required_password ? (
+                                    <p className="text-danger">{ currentState.loginError.Required_password }</p>
+                                ) : (
+                                    ""
+                                )}
+                                { currentState.loginError && currentState.loginError.Invalid_password ? (
+                                    <p className="text-danger">{ currentState.loginError.Invalid_password }</p>
+                                ) : (
+                                    ""
+                                )}
+                                { currentState.loginError && currentState.loginError.Incorrect_password ? (
+                                    <p className="text-danger">{ currentState.loginError.Incorrect_password }</p>
+                                ) : (
+                                    ""
+                                )}
                             </div>
-                            <button type="submit" className="btn btn-solid" name="login"
-                                    data-trans-key="general.newsletter_form.submit">Login
-                            </button>
+                            {currentState.isLoading ? (
+                                <button type="submit" className="btn btn-solid" name="login"
+                                        data-trans-key="general.newsletter_form.submit">Loading ...
+                                </button>
+                            ) : (
+                                <button type="submit" className="btn btn-solid" name="login"
+                                        data-trans-key="general.newsletter_form.submit">Login
+                                </button>
+                            )}
+
                         </form>
                         <a href="/forgotpassword" style={{color:"#ff7a45"}}>Forgot Your Password?</a>
                     </div>
@@ -76,9 +119,11 @@ const Login = () => {
                             Sign Up For A Free Account At Our Store.
                             Registration Is Quick And Easy. It Allows You To Be Able To Order From Our Shop.
                             To Start Shopping Click Register.</p>
+                        <Link to="/register">
                         <button type="submit" className="btn btn-solid" name="create"
                                 data-trans-key="general.newsletter_form.submit">Create
                         </button>
+                        </Link>
                     </div>
                 </div>
             </div>

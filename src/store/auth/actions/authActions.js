@@ -3,6 +3,7 @@ import axios from 'axios';
 import {BEFORE_STATE, LOGIN_ERROR, LOGIN_SUCCESS, LOGOUT_SUCCESS, SIGNUP_ERROR, SIGNUP_SUCCESS} from "../actionTypes";
 import {history} from "../../../history";
 import setAuthorizationToken from "../../../authorization";
+import {message} from "antd";
 
 
 
@@ -13,8 +14,9 @@ export const SignUp = (newUser) => {
             await axios.post(`${API_ROUTE}/register`, newUser);
             dispatch({type: SIGNUP_SUCCESS});
             history.push("/login");
+            message.success("You have successfully registered an account")
         }catch (err) {
-            dispatch({type:SIGNUP_ERROR,payload:err.response});
+            dispatch({type:SIGNUP_ERROR,payload:err.response.data.error});
         }
     }
 
@@ -30,8 +32,9 @@ export const SignIn = (credentials) => {
             localStorage.setItem('user_data', JSON.stringify(userData));
             setAuthorizationToken(userData.token);
             dispatch({type: LOGIN_SUCCESS, payload: userData});
+            message.success('You have successfully logged in.')
         }catch (err) {
-            dispatch({type:LOGIN_ERROR, payload: err.response})
+            dispatch({type:LOGIN_ERROR, payload: err.response.data.error})
         }
     }
 

@@ -3,9 +3,11 @@ import isEmpty from 'lodash/isEmpty';
 
 export const initialState = {
     isAuthenticated : false,
+    currentUser: {},
     isLoading : false,
     authError : null,
     authSuccess : null,
+    isLoginSuccess: false,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -38,6 +40,7 @@ const authReducer = (state = initialState, action) => {
                 isLoading: false,
                 currentUser: action.payload,
                 isAuthenticated: !isEmpty(action.payload),
+                isLoginSuccess: true,
                 loginError: null,
                 signupError: null,
 

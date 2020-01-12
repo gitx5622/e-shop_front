@@ -94,7 +94,7 @@ class MainBody extends Component {
                                                     <li><a href="/login" data-tip="Add to Cart"><i className="fa fa-shopping-cart"/></a></li>
                                                 </ul>
                                                 <span className="product-new-label">New</span>
-                                                <span className="product-discount-label">{product.discount_price}%</span>
+                                                <span className="product-discount-label">{product.discout_price}%</span>
                                             </div>
                                             <div className="product-content">
                                                 <h3 className="title"><a href="/login">{product.title}</a></h3>
@@ -167,7 +167,7 @@ class MainBody extends Component {
                                                 <li><a href="/login" data-tip="Add to Cart"><i className="fa fa-shopping-cart"/></a></li>
                                             </ul>
                                             <span className="product-new-label">New</span>
-                                            <span className="product-discount-label">{product.discount_price}%</span>
+                                            <span className="product-discount-label">{product.discout_price}%</span>
                                         </div>
                                         <div className="product-content">
                                             <h3 className="title"><a href="/login">{product.title}</a></h3>
