@@ -65,7 +65,6 @@ const Navigation = () => {
                     <div className="col">
                         <div className="basket d-none d-md-block">
                             <ul>
-                                <li><i className="fa fa-user fa-2x" aria-hidden="true"/></li>
                                 <li><i className="fa fa-shopping-basket fa-2x" aria-hidden="true"/> <a href="/">
                                     <Badge count={5}>
                                         <span className="head-example" />
@@ -79,11 +78,14 @@ const Navigation = () => {
                         </div>
                         <div className="basket d-block d-md-none">
                             <ul>
-                                <li><i className="fa fa-user fa-2x" aria-hidden="true"/></li>
-                                <li><i className="fa fa-shopping-basket fa-2x" aria-hidden="true"/> <a href="/">
-                                    <Badge count={5}>
-                                        <span className="head-example" />
-                                    </Badge>
+                                <li style={{float:"right", textDecoration:"none",marginLeft:"20px"}}>
+                                    <Dropdown overlay={ isAuthenticated ? SignedOutLinks: SignedInLinks }>
+                                        <a className="ant-dropdown-link">
+                                            <li><Icon type="user" style={{fontSize:"24px"}}/></li>
+                                        </a></Dropdown>
+                                </li>
+
+                                <li ><i className="fa fa-shopping-basket fa-2x " aria-hidden="true"/> <a href="/">
                                 </a></li>
 
                             </ul>

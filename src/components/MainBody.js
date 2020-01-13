@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Slider from "./Slider";
-import {Col} from 'antd';
+import {Col,Modal} from 'antd';
 import delivery from '../assests/delivery.png';
 import daily from '../assests/daily.png';
 import festival from '../assests/festival.png';
@@ -104,7 +104,7 @@ class MainBody extends Component {
                                                 </div>
 
                                                 <button className="add-to-cart" onClick={(e)=>
-                                                {if(window.confirm('Your item has been added to Cart')){this.handleAddToCart(e, product)}}}>ADD TO CART</button>
+                                                {if(Modal.confirm('Your item has been added to Cart')){this.handleAddToCart(e, product)}}}>ADD TO CART</button>
 
                                             </div>
                                         </div>
