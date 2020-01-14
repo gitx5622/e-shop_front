@@ -15,3 +15,4 @@ class Layout1 extends Component {
 }
 
 export default Layout1;
+
