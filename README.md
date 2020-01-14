@@ -10,3 +10,13 @@ Runs the app in the production <br />
 Open https://onlineshoppingkenya.co.ke to view it in the browser.
 
 ![](src/assests/e-shop1.png)
+
+## View products
+
+![](src/assests/e-shop2.png)
+
+## Add to Cart
+
+![](src/assests/e-shop3.png)
+
+
