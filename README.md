@@ -15,8 +15,10 @@ Open https://onlineshoppingkenya.co.ke to view it in the browser.
 
 ![](src/assests/e-shop2.png)
 
-## Add to Cart
+## Add to Cart functionality
+## See products details
+
 
 ![](src/assests/e-shop3.png)
 
-
+## Enjoy shopping with onlineshoppingkenya
