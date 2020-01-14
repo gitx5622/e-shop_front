@@ -7,6 +7,6 @@ The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
 Runs the app in the production <br />
-Open [https://onlineshoppingkenya.co.ke](https://onlineshoppingkenya.co.ke to view it in the browser.
+Open https://onlineshoppingkenya.co.ke to view it in the browser.
 
 ![](src/assests/e-shop1.png)
