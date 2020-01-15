@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Slider from "./Slider";
-import {Col,Modal} from 'antd';
+import {Col, Modal} from 'antd';
 import delivery from '../assests/delivery.png';
 import daily from '../assests/daily.png';
 import festival from '../assests/festival.png';
@@ -88,11 +88,17 @@ class MainBody extends Component {
                                                     <img className="pic-2" src={product.image_url_2} alt="#"/>
                                                 </a>
                                                 <ul className="social">
+<<<<<<< HEAD
                                                     <li><a  data-tip="View Product"
+=======
+                                                    <li><a data-tip="View Product"
+>>>>>>> 4b60840820a4944614c59f5fc9a398b7c536e702
                                                            onClick={() => this.props.history.push(`product/${product.id}/`)}
                                                            producta-tip="Quick View"><i className="fa fa-eye"/></a></li>
-                                                    <li><a href="/login" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"/></a></li>
-                                                    <li><a href="/login" data-tip="Add to Cart"><i className="fa fa-shopping-cart"/></a></li>
+                                                    <li><a href="/login" data-tip="Add to Wishlist"><i
+                                                        className="fa fa-shopping-bag"/></a></li>
+                                                    <li><a href="/login" data-tip="Add to Cart"><i
+                                                        className="fa fa-shopping-cart"/></a></li>
                                                 </ul>
                                                 <span className="product-new-label">New</span>
                                                 <span className="product-discount-label">{product.discout_price}%</span>
@@ -192,6 +198,6 @@ class MainBody extends Component {
     }
 
 
-    };
+}
 
 export default MainBody

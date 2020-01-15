@@ -1,7 +1,13 @@
 import {
     BEFORE_STATE_PRODUCT,
     FETCH_PRODUCTS,
+<<<<<<< HEAD
     FETCH_PRODUCTS_ERROR, GET_PRODUCT_ERROR, GET_PRODUCT_SUCCESS
+=======
+    FETCH_PRODUCTS_ERROR,
+    GET_PRODUCT_ERROR,
+    GET_PRODUCT_SUCCESS
+>>>>>>> 4b60840820a4944614c59f5fc9a398b7c536e702
 } from "../actionTypes";
 
 export const initState = {
@@ -13,8 +19,13 @@ export const initState = {
 
 export const productsState = (state = initState, action) => {
 
+<<<<<<< HEAD
     const { payload, type } = action;
     switch(type) {
+=======
+    const {payload, type} = action;
+    switch (type) {
+>>>>>>> 4b60840820a4944614c59f5fc9a398b7c536e702
 
         case BEFORE_STATE_PRODUCT:
             return {

@@ -6,7 +6,6 @@ import setAuthorizationToken from "../../../authorization";
 import {message} from "antd";
 
 
-
 export const SignUp = (newUser) => {
     return async dispatch => {
         dispatch({type: BEFORE_STATE});

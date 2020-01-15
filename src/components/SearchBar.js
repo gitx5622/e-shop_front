@@ -5,8 +5,13 @@ import API_ROUTE from "../constants";
 
 
 class SearchBar extends Component {
+<<<<<<< HEAD
     constructor( props ) {
         super( props );
+=======
+    constructor(props) {
+        super(props);
+>>>>>>> 4b60840820a4944614c59f5fc9a398b7c536e702
 
         this.state = {
             query: '',
@@ -19,7 +24,11 @@ class SearchBar extends Component {
     }
 
 
+<<<<<<< HEAD
     fetchSearchResults = (updatedPageNo = '', query ) => {
+=======
+    fetchSearchResults = (updatedPageNo = '', query) => {
+>>>>>>> 4b60840820a4944614c59f5fc9a398b7c536e702
 
         const pageNumber = updatedPageNo ? `&page=${updatedPageNo}` : '';
 
@@ -64,6 +73,7 @@ class SearchBar extends Component {
         });
         if (Object.keys(results).length && results.length) {
             return (
+<<<<<<< HEAD
                 <div className="results-container" style={{height:"400px"}}>
                     {filteredCharacters && filteredCharacters.map(result => {
                         return (
@@ -71,6 +81,17 @@ class SearchBar extends Component {
                                 <div className="card" style={{width:"300px"}}>
                                     <ul className="list-group list-group-flush">
                                         <li className="list-group-item" style={{borderBottom:"1px solid whitesmoke"}}>{result.title}</li>
+=======
+                <div className="results-container" style={{height: "400px"}}>
+                    {filteredCharacters && filteredCharacters.map(result => {
+                        return (
+                            <a key={result.id} href={'/posts/' + result.id} className="result-items"
+                               style={{textDecoration: "none"}}>
+                                <div className="card" style={{width: "300px"}}>
+                                    <ul className="list-group list-group-flush">
+                                        <li className="list-group-item"
+                                            style={{borderBottom: "1px solid whitesmoke"}}>{result.title}</li>
+>>>>>>> 4b60840820a4944614c59f5fc9a398b7c536e702
                                         <li className="list-group-item">{result.content}</li>
                                     </ul>
                                 </div>
@@ -86,16 +107,29 @@ class SearchBar extends Component {
     handleOnInputChange = (event) => {
         const query = event.target.value;
 
+<<<<<<< HEAD
         if ( ! query ) {
             this.setState({ query, results: [], message: 'No results Found' } );
         } else {
             this.setState({ query, loading: true, message: '' }, () => {
+=======
+        if (!query) {
+            this.setState({query, results: [], message: 'No results Found'});
+        } else {
+            this.setState({query, loading: true, message: ''}, () => {
+>>>>>>> 4b60840820a4944614c59f5fc9a398b7c536e702
                 this.fetchSearchResults(1, query);
             });
         }
     };
+<<<<<<< HEAD
     render() {
         const { query } = this.state;
+=======
+
+    render() {
+        const {query} = this.state;
+>>>>>>> 4b60840820a4944614c59f5fc9a398b7c536e702
         return (
             <div>
                 {/*Heading*/}
@@ -105,7 +139,11 @@ class SearchBar extends Component {
 
                 <label className="search-label" htmlFor="search-input">
                     <Input
+<<<<<<< HEAD
                         style={{borderRadius:"50px",width:"290px"}}
+=======
+                        style={{borderRadius: "50px", width: "290px"}}
+>>>>>>> 4b60840820a4944614c59f5fc9a398b7c536e702
                         type="text"
                         value={query}
                         id="search-input"
@@ -117,8 +155,13 @@ class SearchBar extends Component {
 
                 </label>
                 {/*Result*/}
+<<<<<<< HEAD
                 <div style={{overflowX:"hidden",overflowY:"auto", position:"absolute"}}>
                 { this.renderSearchResults() }
+=======
+                <div style={{overflowX: "hidden", overflowY: "auto", position: "absolute"}}>
+                    {this.renderSearchResults()}
+>>>>>>> 4b60840820a4944614c59f5fc9a398b7c536e702
                 </div>
             </div>
         );
