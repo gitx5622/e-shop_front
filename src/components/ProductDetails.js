@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Col, Row} from "antd";
 import {useDispatch, useSelector} from "react-redux";
-import {getProduct} from "../store/products/actions/postsAction";
+import {getProduct} from "../store/products/actions/productsAction";
 
 
 const ProductDetails = (props) => {
