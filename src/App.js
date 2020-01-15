@@ -1,25 +1,31 @@
 import React, {Component} from 'react';
-import {Router, Switch, Route } from "react-router-dom";
-import Layout1 from "./components/Layout1";
-import {history} from "./history";
+import {Route, Router, Switch} from 'react-router-dom'
 import Login from "./containers/Login";
-import MainBody from "./components/MainBody";
 import Register from "./containers/Register";
+import {history} from "./history";
+import MainBody from "./components/MainBody";
+import ProductDetails from "./components/ProductDetails";
+import Layout1 from "./components/Layout1";
+
 
 class App extends Component {
-  render() {
-    return (
-        <Router history={history}>
-            <Layout1>
-            <Switch>
-                <Route exact path="/" component={MainBody} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/register" component={Register} />
-            </Switch>
-            </Layout1>
-        </Router>
-    );
-  }
+    render() {
+        return (
+
+            <Router history={history}>
+                <Layout1>
+                    <Switch>
+                        <Route exact path="/" component={MainBody}/>
+                        <Route path="/login" component={Login}/>
+                        <Route path='/signup' component={Register}/>
+                        <Route exact path="/product/:id" component={ProductDetails}/>
+                    </Switch>
+                </Layout1>
+            </Router>
+
+
+        );
+    }
 }
 
 export default App;

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Slider from "./Slider";
-import {Col,Modal} from 'antd';
+import {Col, Modal} from 'antd';
 import delivery from '../assests/delivery.png';
 import daily from '../assests/daily.png';
 import festival from '../assests/festival.png';
@@ -31,6 +31,7 @@ class MainBody extends Component {
                 })
         })
     }
+
 
     render () {
         const data = this.state.products;
@@ -82,16 +83,18 @@ class MainBody extends Component {
                                     <div key={product.id} className="col-md-3 sm-6">
                                         <div className="product-grid4">
                                             <div className="product-image4">
-                                                <a href="javasript:;" onClick={() => this.props.history.push(`product/${product.id}/`)}>
+                                                <a onClick={() => this.props.history.push(`product/${product.id}/`)}>
                                                     <img className="pic-1" src={product.image_url_1} alt="#"/>
                                                     <img className="pic-2" src={product.image_url_2} alt="#"/>
                                                 </a>
                                                 <ul className="social">
-                                                    <li><a href="javasript:;" data-tip="View Product"
+                                                    <li><a data-tip="View Product"
                                                            onClick={() => this.props.history.push(`product/${product.id}/`)}
                                                            producta-tip="Quick View"><i className="fa fa-eye"/></a></li>
-                                                    <li><a href="/login" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"/></a></li>
-                                                    <li><a href="/login" data-tip="Add to Cart"><i className="fa fa-shopping-cart"/></a></li>
+                                                    <li><a href="/login" data-tip="Add to Wishlist"><i
+                                                        className="fa fa-shopping-bag"/></a></li>
+                                                    <li><a href="/login" data-tip="Add to Cart"><i
+                                                        className="fa fa-shopping-cart"/></a></li>
                                                 </ul>
                                                 <span className="product-new-label">New</span>
                                                 <span className="product-discount-label">{product.discout_price}%</span>
@@ -191,6 +194,6 @@ class MainBody extends Component {
     }
 
 
-    };
+}
 
 export default MainBody

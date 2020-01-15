@@ -1,6 +1,6 @@
-import {combineReducers} from "redux";
+import {combineReducers} from "redux"
 import authReducer from "../auth/reducer/authReducer";
-import {productsState} from "../products/reducer/productsReducer";
+import {productsState} from "../products/reducer/postsReducer";
 
 
 const reducer = combineReducers({
@@ -8,4 +8,4 @@ const reducer = combineReducers({
     ProductsState: productsState,
 });
 
-export default reducer;
+export default reducer

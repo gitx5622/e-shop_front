@@ -6,10 +6,9 @@ import setAuthorizationToken from "../../../authorization";
 import {message} from "antd";
 
 
-
 export const SignUp = (newUser) => {
     return async dispatch => {
-            dispatch({type: BEFORE_STATE});
+        dispatch({type: BEFORE_STATE});
         try {
             await axios.post(`${API_ROUTE}/register`, newUser);
             dispatch({type: SIGNUP_SUCCESS});
@@ -24,7 +23,7 @@ export const SignUp = (newUser) => {
 
 export const SignIn = (credentials) => {
     return async dispatch => {
-            dispatch({type: BEFORE_STATE});
+        dispatch({type: BEFORE_STATE});
         try {
             const res = await axios.post(`${API_ROUTE}/login`, credentials);
             let userData = res.data.response;
