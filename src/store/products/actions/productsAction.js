@@ -48,7 +48,7 @@ export const createProduct = (createPost) => {
 
 export function getProduct (id) {
     return async (dispatch) => {
-        dispatch({BEFORE_STATE_PRODUCT});
+        dispatch({type: BEFORE_STATE_PRODUCT});
 
         try {
             const res = await axios.get(`${API_ROUTE}/getproduct/${id}`);

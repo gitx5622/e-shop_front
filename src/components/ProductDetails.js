@@ -34,22 +34,32 @@ const ProductDetails = (props) => {
                 </div>
             </div>
             <div className="container" style={{marginTop:"50px",marginBottom:"50px"}}>
-                <Row>
+                <div className="row">
                     <div className="media">
-                        <Col span={12} className="details-image">
+                        <div className="col-md-6 details-image">
                             <img src={product.image_url_1} className="card-img-top mr-3"  alt="..."/>
-                        </Col>
-                        <Col span={12}>
+                        </div>
+                        <div className="col-md-6">
                             <div className="media-body">
-                                <h3 className="mt-0">Media heading</h3>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-                                Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in
-                                faucibus.
+                                <h3 className="mt-0">{product.title}</h3>
+                                <span style={{textDecoration:"line-through"}}>{product.discout_price}</span>
+                               <span>{product.price}</span>
+                                <p><pre>{product.description}</pre></p>
+                                <button type="submit" className="btn btn-solid" name="subscribe"
+                                        id="mc-embedded-subscribe"
+                                        data-trans-key="general.newsletter_form.submit">Add to Cart
+                                </button>
+                                &emsp;&emsp;
+                                <button type="submit" className="btn btn-solid" name="subscribe"
+                                        id="mc-embedded-subscribe"
+                                        data-trans-key="general.newsletter_form.submit">Buy Now
+                                </button>
                             </div>
-                        </Col>
+                            <br/>
+                            <p>Please <a href="/">Contact Us</a> If You Are Interested In This Product.</p>
+                        </div>
                     </div>
-                </Row>
+                </div>
             </div>
         </div>
     );
