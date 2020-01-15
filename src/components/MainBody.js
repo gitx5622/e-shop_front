@@ -32,6 +32,7 @@ class MainBody extends Component {
         })
     }
 
+
     render () {
         const data = this.state.products;
         return (
@@ -82,12 +83,12 @@ class MainBody extends Component {
                                     <div key={product.id} className="col-md-3 sm-6">
                                         <div className="product-grid4">
                                             <div className="product-image4">
-                                                <a href="javasript:;" onClick={() => this.props.history.push(`product/${product.id}/`)}>
+                                                <a onClick={() => this.props.history.push(`product/${product.id}/`)}>
                                                     <img className="pic-1" src={product.image_url_1} alt="#"/>
                                                     <img className="pic-2" src={product.image_url_2} alt="#"/>
                                                 </a>
                                                 <ul className="social">
-                                                    <li><a href="javasript:;" data-tip="View Product"
+                                                    <li><a  data-tip="View Product"
                                                            onClick={() => this.props.history.push(`product/${product.id}/`)}
                                                            producta-tip="Quick View"><i className="fa fa-eye"/></a></li>
                                                     <li><a href="/login" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"/></a></li>
