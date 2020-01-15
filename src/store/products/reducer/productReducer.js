@@ -1,13 +1,9 @@
 import {
-    BEFORE_STATE_PRODUCT,
+    BEFORE_STATE_PRODUCT, CREATE_PRODUCT_ERROR, CREATE_PRODUCT_SUCCESS, DELETE_PRODUCT_ERROR, DELETE_PRODUCT_SUCCESS,
     FETCH_PRODUCTS,
-<<<<<<< HEAD
-    FETCH_PRODUCTS_ERROR, GET_PRODUCT_ERROR, GET_PRODUCT_SUCCESS
-=======
     FETCH_PRODUCTS_ERROR,
     GET_PRODUCT_ERROR,
-    GET_PRODUCT_SUCCESS
->>>>>>> 4b60840820a4944614c59f5fc9a398b7c536e702
+    GET_PRODUCT_SUCCESS, UPDATE_PRODUCT_ERROR, UPDATE_PRODUCT_SUCCESS
 } from "../actionTypes";
 
 export const initState = {
@@ -19,46 +15,90 @@ export const initState = {
 
 export const productsState = (state = initState, action) => {
 
-<<<<<<< HEAD
     const { payload, type } = action;
     switch(type) {
-=======
-    const {payload, type} = action;
-    switch (type) {
->>>>>>> 4b60840820a4944614c59f5fc9a398b7c536e702
 
         case BEFORE_STATE_PRODUCT:
             return {
                 ...state,
-                postsError: null,
+                productsError: null,
                 isLoading: true,
             };
         case FETCH_PRODUCTS:
             return {
                 ...state,
-                posts: payload,
+                products: payload,
                 isLoading: false,
             };
 
         case FETCH_PRODUCTS_ERROR:
             return {
                 ...state,
-                postsError: payload,
+                productsError: payload,
                 isLoading: false
             };
 
         case GET_PRODUCT_SUCCESS:
             return {
                 ...state,
-                post: payload,
-                postsError: null,
+                product: payload,
+                productsError: null,
                 isLoading: false
             };
 
         case GET_PRODUCT_ERROR:
             return {
                 ...state,
-                postsError: payload,
+                productsError: payload,
+                isLoading: false
+            };
+
+        case CREATE_PRODUCT_SUCCESS:
+            return {
+                ...state,
+                products: [payload, ...state.products],
+                postsError: null,
+                isLoading: false
+            };
+
+        case CREATE_PRODUCT_ERROR:
+            return {
+                ...state,
+                productsError: payload,
+                isLoading: false
+            };
+
+        case UPDATE_PRODUCT_SUCCESS:
+            return {
+                ...state,
+                products: state.products.map(product =>
+                    product.id === payload.id ?
+                        {...product, title: payload.title, price: payload.price} : product
+                ),
+                product: payload,
+                productsError: null,
+                isLoading: false
+            };
+
+        case UPDATE_PRODUCT_ERROR:
+            return {
+                ...state,
+                productsError: payload,
+                isLoading: false
+            };
+
+        case DELETE_PRODUCT_SUCCESS:
+            return {
+                ...state,
+                products: state.products.filter(product => product.id !== payload.deletedID),
+                productsError: null,
+                isLoading: false
+            };
+
+        case DELETE_PRODUCT_ERROR:
+            return {
+                ...state,
+                productsError: payload,
                 isLoading: false
             };
 
