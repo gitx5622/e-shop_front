@@ -3,6 +3,7 @@
     top: 0;
     right: -350px;
     width: 350px;
+    z-index: 1;
     height: 100%;
     background-color: #1b1a20;
     box-sizing: border-box;
