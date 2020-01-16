@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {SignIn} from "../store/auth/actions/authActions";
 import {Redirect, Link} from 'react-router-dom';
 import '../css/Login.css';
-import {Alert, message} from "antd";
+import {Alert} from "antd";
 
 const Login = () => {
 

@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
-import {Row,Col} from "antd";
-import {useDispatch, useSelector} from "react-redux";
+import {connect, useDispatch, useSelector} from "react-redux";
 import {getProduct}  from "../store/products/actions/productsAction";
+import PropTypes from "prop-types";
+import {addProduct} from "../store/cart/cartAction/cartActions";
 
 
 const ProductDetails = (props) => {
@@ -10,15 +11,17 @@ const ProductDetails = (props) => {
 
     const currentState = useSelector(state => state);
 
-    const product = currentState.ProductsState.product;
+    const product = currentState.Products.product;
 
-    const dispatchx = useDispatch();
+    product.quantity = 1;
 
-    const getProductsId = (id) => dispatchx(getProduct(id));
+    const dispatch = useDispatch();
+
+    const getProductsId = (id) => dispatch(getProduct(id));
 
     useEffect(()=>{
         getProductsId(productID);
-    }, []);
+    });
 
 
     return (
@@ -42,11 +45,14 @@ const ProductDetails = (props) => {
                         <div className="col-md-6">
                             <div className="media-body">
                                 <h3 className="mt-0">{product.title}</h3>
-                                <span style={{textDecoration:"line-through"}}>{product.discout_price}</span>
-                               <span>{product.price}</span>
-                                <p><pre>{product.description}</pre></p>
+                                <h5>Allowed Discount:</h5>
+                                <h5>{product.discout_price}%</h5><br/>
+                                <h5 style={{textDecoration:"line-through"}}>Kshs{product.price}</h5><br/>
+                               <h5>Kshs{product.price}</h5>
+                                <p>{product.description}</p>
                                 <button type="submit" className="btn btn-solid" name="subscribe"
                                         id="mc-embedded-subscribe"
+                                        onClick={() => props.addProduct(product)}
                                         data-trans-key="general.newsletter_form.submit">Add to Cart
                                 </button>
                                 &emsp;&emsp;
@@ -65,4 +71,9 @@ const ProductDetails = (props) => {
     );
 };
 
-export default ProductDetails;
+ProductDetails.propTypes = {
+    addProduct: PropTypes.func.isRequired
+};
+
+
+export default connect(null,{addProduct})(ProductDetails);

@@ -36,7 +36,7 @@ const Navigation = () => {
     const SignedOutLinks = (
         <Menu>
             <Menu.Item>
-                <a href="#/" onClick={logout}>Logout</a>
+                <a onClick={logout}>Logout</a>
             </Menu.Item>
         </Menu>
     );

@@ -1,43 +1,34 @@
-import React, {Component} from 'react';
+import React, {useEffect} from 'react';
 import Slider from "./Slider";
-import {Col,Modal} from 'antd';
+import {Col} from 'antd';
 import delivery from '../assests/delivery.png';
 import daily from '../assests/daily.png';
 import festival from '../assests/festival.png';
 import back3 from '../assests/back3.jpg';
 import '../css/MainBody.css';
-import axios from 'axios';
-import API_ROUTE from "../constants";
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchProducts} from "../store/products/actions/productsAction";
+import {history} from "../history";
 
 
-class MainBody extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            products: [],
-            error: null,
-        }
-    }
+const MainBody = () => {
 
-    componentDidMount() {
-        axios.get(`${API_ROUTE}/getproducts`)
-            .then(res=> {
-                this.setState({
-                    products: res.data.response
-                })
-            }).catch(err => {
-            this.setState({
-                error: err
-            })
-        })
-    }
+    const currentState = useSelector(state => state);
+
+    const products = currentState.Products.products;
+
+    const dispatch = useDispatch();
+
+    const getProducts = () => dispatch(fetchProducts());
+
+    useEffect(()=>{
+       getProducts();
+    });
 
 
-    render () {
-        const data = this.state.products;
-        return (
+    return (
             <div>
-                <div className="row">
+                    <div className="row">
                     <div className="corousel">
                         <Slider/>
                     </div>
@@ -79,17 +70,17 @@ class MainBody extends Component {
                         <div className="container" style={{background: "white", zIndex:"1000px"}}>
                             <center><h1 style={{fontFamily:'Roboto',}}>Product List</h1></center>
                             <div className="row" style={{marginTop: "20px"}}>
-                                {data.slice(4, 8).map(product=>{ return (
+                                {products.slice(4, 8).map(product=>{ return (
                                     <div key={product.id} className="col-md-3 sm-6">
                                         <div className="product-grid4">
                                             <div className="product-image4">
-                                                <a onClick={() => this.props.history.push(`product/${product.id}/`)}>
+                                                <a onClick={() => history.push(`product/${product.id}/`)}>
                                                     <img className="pic-1" src={product.image_url_1} alt="#"/>
                                                     <img className="pic-2" src={product.image_url_2} alt="#"/>
                                                 </a>
                                                 <ul className="social">
                                                     <li><a  data-tip="View Product"
-                                                            onClick={() => this.props.history.push(`product/${product.id}/`)}
+                                                            onClick={() => history.push(`product/${product.id}/`)}
                                                             producta-tip="Quick View"><i className="fa fa-eye"/></a></li>
                                                     <li><a href="/login" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"/></a></li>
                                                     <li><a href="/login" data-tip="Add to Cart"><i className="fa fa-shopping-cart"/></a></li>
@@ -104,8 +95,7 @@ class MainBody extends Component {
                                                     <span>20.00</span>
                                                 </div>
 
-                                                <button className="add-to-cart" onClick={(e)=>
-                                                {if(Modal.confirm('Your item has been added to Cart')){this.handleAddToCart(e, product)}}}>ADD TO CART</button>
+                                                <button className="add-to-cart" >ADD TO CART</button>
 
                                             </div>
                                         </div>
@@ -114,11 +104,11 @@ class MainBody extends Component {
                             </div>
 
                             <div className="row" style={{marginTop: "20px"}}>
-                                {data.slice(8, 12).map(product=>{ return (
+                                {products.slice(8, 12).map(product=>{ return (
                                     <div key={product.id} className="col-md-3 col-sm-6">
                                         <div className="product-grid6">
                                             <div className="product-image6">
-                                                <a href="#/">
+                                                <a>
                                                     <img className="pic-1" src={product.image_url_1}  alt="..."/>
                                                 </a>
                                             </div>
@@ -132,7 +122,7 @@ class MainBody extends Component {
                                                 <li><a href="#/" data-tip="Quick View"><i className="fa fa-search"/></a></li>
                                                 <li><a href="#/" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"/></a>
                                                 </li>
-                                                <li><a href="#/" data-tip="Add to Cart"><i className="fa fa-shopping-cart"/></a></li>
+                                                <li><a  data-tip="Add to Cart" ><i className="fa fa-shopping-cart"/></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -153,17 +143,17 @@ class MainBody extends Component {
                 <div className="row" style={{background:"white"}}>
                     <div className="container">
                         <div className="row" style={{marginTop: "20px"}}>
-                            {data.slice(0, 4).map(product=>{ return (
+                            {products.slice(0, 4).map(product=>{ return (
                                 <div key={product.id} className="col-md-3 sm-6">
                                     <div className="product-grid4">
                                         <div className="product-image4">
-                                            <a href="#/" onClick={() => this.props.history.push(`product/${product.id}/`)}>
+                                            <a  onClick={() => history.push(`product/${product.id}/`)}>
                                                 <img className="pic-1" src={product.image_url_1} alt="#"/>
                                                 <img className="pic-2" src={product.image_url_2} alt="#"/>
                                             </a>
                                             <ul className="social">
-                                                <li><a href="#/" data-tip="View Product" onClick={() =>
-                                                    this.props.history.push(`product/${product.id}/`)} producta-tip="Quick View"><i className="fa fa-eye"/></a></li>
+                                                <li><a data-tip="View Product" onClick={() =>
+                                                    history.push(`product/${product.id}/`)} producta-tip="Quick View"><i className="fa fa-eye"/></a></li>
                                                 <li><a href="/login" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"/></a></li>
                                                 <li><a href="/login" data-tip="Add to Cart"><i className="fa fa-shopping-cart"/></a></li>
                                             </ul>
@@ -177,8 +167,7 @@ class MainBody extends Component {
                                                 <span>20.00</span>
                                             </div>
 
-                                            <button className="add-to-cart" onClick={(e)=>
-                                            {if(window.confirm('Your item has been added to Cart')){this.handleAddToCart(e, product)}}}>ADD TO CART</button>
+                                            <button className="add-to-cart">ADD TO CART</button>
 
                                         </div>
                                     </div>
@@ -189,9 +178,6 @@ class MainBody extends Component {
                 </div>
             </div>
         );
-    }
+    };
 
-
-};
-
-export default MainBody
+export default MainBody;

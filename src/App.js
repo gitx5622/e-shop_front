@@ -6,6 +6,7 @@ import {history} from "./history";
 import MainBody from "./components/MainBody";
 import ProductDetails from "./components/ProductDetails";
 import Layout1 from "./components/Layout1";
+import FloatCart from "./components/FloatCart";
 
 class App extends Component {
     render() {
@@ -20,6 +21,7 @@ class App extends Component {
                        <Route exact path="/product/:id" component={ProductDetails} />
                        </Switch>
                </Layout1>
+               <FloatCart/>
            </Router>
         );
     }
