@@ -6,6 +6,7 @@ import CartProduct from "./CartProduct";
 import '../css/FloatCart.css';
 import {message} from "antd";
 import PropTypes from 'prop-types';
+import basket from '../assests/basket.jpg';
 
 class FloatCart extends Component {
     static propTypes = {
@@ -133,7 +134,7 @@ class FloatCart extends Component {
                     <span
                         onClick={() => this.openFloatCart()}
                         className="bag bag--float-cart-closed"
-                    >
+                    ><i style={{marginTop:"10px", color:"#000000"}} className="fa fa-shopping-basket fa-2x" aria-hidden="true"/>
             <span className="bag__quantity">{cartTotal.productQuantity}</span>
           </span>
                 )}

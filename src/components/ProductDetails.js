@@ -3,7 +3,7 @@ import {connect, useDispatch, useSelector} from "react-redux";
 import {getProduct}  from "../store/products/actions/productsAction";
 import PropTypes from "prop-types";
 import {addProduct} from "../store/cart/cartAction/cartActions";
-
+import '../css/ProductsDetails.css';
 
 const ProductDetails = (props) => {
 
@@ -40,11 +40,13 @@ const ProductDetails = (props) => {
             <div className="container" style={{marginTop:"50px",marginBottom:"50px"}}>
                 <div className="row">
                     <div className="media">
-                        <div className="col-md-6 details-image">
+                        <div className="col-md-6">
+                            <div className=" details-image">
                             <img src={product.image_url_1} className="card-img-top mr-3"  alt="..."/>
+                            </div>
                         </div>
                         <div className="col-md-6">
-                            <div className="media-body">
+                            <div className="media-body description">
                                 <h3 className="mt-0">{product.title}</h3>
                                 <h5>Allowed Discount:</h5>
                                 <h5>{product.discout_price}%</h5><br/>

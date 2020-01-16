@@ -1,3 +1,10 @@
-.details-image {
-    background-color: whitesmoke;
+@media (max-width: 768px) {
+    .details-image {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .description {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }

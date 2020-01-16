@@ -1,8 +1,8 @@
 .float-cart {
     position: fixed;
     top: 0;
-    right: -450px;
-    width: 450px;
+    right: -350px;
+    width: 350px;
     height: 100%;
     background-color: #1b1a20;
     box-sizing: border-box;
@@ -20,36 +20,29 @@
     line-height: 50px;
     position: absolute;
     top: 0;
-    left: -50px;
+    left: 280px;
     cursor: pointer;
 }
 .float-cart__close-btn:hover {
     background-color: #212027;
 }
-.float-cart .bag {
-    width: 40px;
-    height: 40px;
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 15px;
-    /*background-image: url(/images/basket.jpg);*/
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+
+@media (max-width: 768px) {
+    .float-cart .bag {
+      top: 30px;
+    }
 }
 .float-cart .bag--float-cart-closed {
     position: absolute;
-    background-color: #000;
     background-size: 50%;
-    left: -60px;
-    width: 60px;
-    height: 60px;
+    left: -90px;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
 }
 .float-cart .bag--float-cart-closed .bag__quantity {
-    bottom: 5px;
-    right: 10px;
+    bottom: 80px;
+    right: 55px;
 }
 .float-cart .bag__quantity {
     display: inline-block;
@@ -61,7 +54,7 @@
     text-align: center;
     line-height: 18px;
     border-radius: 50%;
-    background-color: #eabf00;
+    background-color: #13c2c2;
     position: absolute;
     bottom: -5px;
     right: 0px;
