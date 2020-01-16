@@ -7,7 +7,7 @@ export const loadCart = products => ({
 
 export const addProduct = product => ({
     type: ADD_PRODUCT,
-    payload: product,
+    payload: product
 });
 
 export const removeProduct = product => ({
