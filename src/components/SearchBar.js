@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import API_ROUTE from "../constants";
 import '../css/SearchBar.css';
+import {message} from "antd";
 
 class SearchBar extends Component {
 
@@ -35,6 +36,7 @@ class SearchBar extends Component {
             cancelToken: this.cancel.token,
         })
             .then((res) => {
+
                 const resultNotFoundMsg = !res.data.response.length
                     ? 'There are no more search results. Please try a new search.'
                     : '';
@@ -57,23 +59,24 @@ class SearchBar extends Component {
 
     renderSearchResults = () => {
         const {results, query} = this.state;
-        const filteredCharacters = results.filter(post => {
-            return post.title.toLowerCase().includes(query.toLowerCase());
+        const filteredCharacters = results.filter(product => {
+            return product.title.toLowerCase().includes(query.toLowerCase());
         });
+
         if (Object.keys(results).length && results.length) {
             return (
                 <div className="results-container">
-                    {filteredCharacters && filteredCharacters.slice(1,9).map(result => {
+                    {filteredCharacters && filteredCharacters.slice(1,9).map(product => {
                         return (
-                            <a key={result.id} href={'/product/' + result.id} className="result-items"
+                            <a key={product.id} href={'/product/' + product.id} className="result-items"
                                style={{textDecoration: "none"}}>
                                 <div style={{width: "530px"}}>
                                     <ul className="search-results">
                                         <li>
-                                           <img src={result.image_url_1} alt="image1" width="40px" height="40px"/>
+                                           <img src={product.image_url_1} alt="image1" width="40px" height="40px"/>
                                         </li>
                                         <li>
-                                            {result.title}
+                                            {product.title}
                                         </li>
                                     </ul>
                                 </div>
@@ -89,9 +92,8 @@ class SearchBar extends Component {
     handleOnInputChange = (event) => {
         const query = event.target.value;
 
-
         if (!query) {
-            this.setState({query, results: [], message: 'No results Found'});
+            this.setState({query, results: [], message : 'There are no more search results. Please try a new search.'});
         } else {
             this.setState({query, loading: true, message: ''}, () => {
                 this.fetchSearchResults(1, query);

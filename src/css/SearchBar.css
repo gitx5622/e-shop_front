@@ -5,3 +5,8 @@
 .search-results li {
     display: inline;
 }
+
+.result-items {
+    color: black;
+    font-family: 'Roboto', sans-serif;
+}

@@ -81,7 +81,7 @@ const Navigation = () => {
                         </div>
                         <div className="basket d-block d-md-none">
                             <ul>
-                                <li style={{float:"right", textDecoration:"none",marginRight:"70px"}}>
+                                <li>
                                     <Dropdown overlay={ isAuthenticated ? SignedOutLinks: SignedInLinks }>
                                         <a className="ant-dropdown-link">
                                             <i className="fa fa-user fa-2x" aria-hidden="true"/>
