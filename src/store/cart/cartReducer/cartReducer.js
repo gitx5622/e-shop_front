@@ -1,7 +1,7 @@
 import { LOAD_CART, ADD_PRODUCT, REMOVE_PRODUCT, CHANGE_PRODUCT_QUANTITY } from '../actionTypes';
 
 const initialState = {
-    products: []
+    products: [],
 };
 
  const Cart = (state = initialState, action) => {

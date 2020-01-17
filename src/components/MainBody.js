@@ -6,16 +6,19 @@ import daily from '../assests/daily.png';
 import festival from '../assests/festival.png';
 import back3 from '../assests/back3.jpg';
 import '../css/MainBody.css';
-import {useDispatch, useSelector} from 'react-redux';
+import {connect, useDispatch, useSelector} from 'react-redux';
 import {fetchProducts} from "../store/products/actions/productsAction";
+import {addProduct} from "../store/cart/cartAction/cartActions";
 import {history} from "../history";
+import PropTypes from "prop-types";
 
 
-const MainBody = () => {
+const MainBody = (props) => {
 
     const currentState = useSelector(state => state);
 
     const products = currentState.Products.products;
+
 
     const dispatch = useDispatch();
 
@@ -96,7 +99,7 @@ const MainBody = () => {
                                                     <span>20.00</span>
                                                 </div>
 
-                                                <button className="add-to-cart" >ADD TO CART</button>
+                                                <button className="add-to-cart" onClick={() => props.addProduct(product)} >ADD TO CART</button>
 
                                             </div>
                                         </div>
@@ -109,7 +112,7 @@ const MainBody = () => {
                                     <div key={product.id} className="col-md-3 col-sm-6">
                                         <div className="product-grid6">
                                             <div className="product-image6">
-                                                <a>
+                                                <a onClick={()=> history.push(`product/${product.id}/`)}>
                                                     <img className="pic-1" src={product.image_url_1}  alt="..."/>
                                                 </a>
                                             </div>
@@ -123,7 +126,7 @@ const MainBody = () => {
                                                 <li><a href="#/" data-tip="Quick View"><i className="fa fa-search"/></a></li>
                                                 <li><a href="#/" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"/></a>
                                                 </li>
-                                                <li><a  data-tip="Add to Cart" ><i className="fa fa-shopping-cart"/></a></li>
+                                                <li><a  data-tip="Add to Cart" onClick={() => props.addProduct(product)} ><i className="fa fa-shopping-cart"/></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -168,7 +171,7 @@ const MainBody = () => {
                                                 <span>20.00</span>
                                             </div>
 
-                                            <button className="add-to-cart">ADD TO CART</button>
+                                            <button className="add-to-cart" onClick={() => props.addProduct(product)}>ADD TO CART</button>
 
                                         </div>
                                     </div>
@@ -181,4 +184,9 @@ const MainBody = () => {
         );
     };
 
-export default MainBody;
+MainBody.propTypes = {
+    addProduct: PropTypes.func.isRequired
+};
+
+
+export default connect(null, {addProduct})(MainBody);

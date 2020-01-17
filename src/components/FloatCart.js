@@ -6,7 +6,6 @@ import CartProduct from "./CartProduct";
 import '../css/FloatCart.css';
 import {message} from "antd";
 import PropTypes from 'prop-types';
-import basket from '../assests/basket.jpg';
 
 class FloatCart extends Component {
     static propTypes = {
@@ -23,7 +22,7 @@ class FloatCart extends Component {
     constructor() {
         super();
         this.state = {
-            isOpen: false
+            isOpen: false,
         }
     }
     componentWillReceiveProps(nextProps) {
@@ -62,10 +61,15 @@ class FloatCart extends Component {
         if (!productAlreadyInCart) {
             cartProducts.push(product);
         }
-
         updateCart(cartProducts);
         this.openFloatCart();
     };
+
+    componentDidMount() {
+        const { cartProducts } = this.props;
+        localStorage.setItem('cartItems', JSON.stringify(cartProducts));
+    }
+
 
     removeProduct = product => {
         const { cartProducts, updateCart } = this.props;

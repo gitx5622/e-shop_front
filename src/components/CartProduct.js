@@ -14,8 +14,11 @@ class CartProduct extends Component {
         this.state = {
             product: this.props.product,
             isMouseOver: false
+
         };
     }
+
+
 
     handleMouseOver = () => {
         this.setState({ isMouseOver: true });
@@ -39,7 +42,7 @@ class CartProduct extends Component {
         changeProductQuantity(product);
     };
 
-    render() {
+    render(key) {
         const { removeProduct } = this.props;
         const { product } = this.state;
 
@@ -48,7 +51,6 @@ class CartProduct extends Component {
         if (!!this.state.isMouseOver) {
             classes.push('shelf-item--mouseover');
         }
-
         return (
             <div className={classes.join(' ')}>
                 <button

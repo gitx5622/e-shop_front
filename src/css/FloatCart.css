@@ -33,6 +33,14 @@
       top: 30px;
     }
 }
+.float-cart .bag {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 15px;
+}
 .float-cart .bag--float-cart-closed {
     position: absolute;
     background-size: 50%;
@@ -57,7 +65,7 @@
     border-radius: 50%;
     background-color: #13c2c2;
     position: absolute;
-    bottom: -5px;
+    bottom: 10px;
     right: 0px;
 }
 .float-cart__header {
