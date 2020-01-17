@@ -18,7 +18,7 @@ export const emailSubscribe = (email) => {
             });
             message.success("You email have been subscribed successfully")
         } catch(err) {
-            dispatch({ type: SUBSCRIBED_ERROR, payload: err });
+            dispatch({ type: SUBSCRIBED_ERROR, payload: err.response.data.error });
         }
     }
 };
