@@ -8,13 +8,12 @@ import {
     FETCH_PRODUCTS_ERROR, GET_PRODUCT_ERROR, GET_PRODUCT_SUCCESS
 } from "../actionTypes";
 import {history} from "../../../history";
-import {BEFORE_STATE} from "../../auth/actionTypes";
 
 
 export const fetchProducts = () => {
     return async dispatch => {
 
-        dispatch({type: BEFORE_STATE});
+        dispatch({type: BEFORE_STATE_PRODUCT});
 
         try {
             await axios.get(`${API_ROUTE}/getproducts`)

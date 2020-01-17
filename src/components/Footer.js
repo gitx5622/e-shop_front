@@ -1,10 +1,31 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import { Icon, Row, Col } from 'antd';
 import '../css/Footer.css';
 import logo from '../assests/logo.png';
+import {useDispatch, useSelector} from "react-redux";
+import {emailSubscribe} from "../store/subscribe/actions/subscribeAction";
 
-class Footer extends Component {
-    render() {
+const Footer = () => {
+
+    const currentState = useSelector(state => state);
+
+    const [subscribe, setSubscribe] = useState({email:''});
+    const dispatch = useDispatch();
+
+    const subscribed = (email) => dispatch(emailSubscribe(email));
+
+    const handleChange = e => {
+        setSubscribe({
+            ...subscribe,
+            [e.target.name]: e.target.value
+        })
+    };
+    const submitUser = (e) => {
+        e.preventDefault();
+        subscribed({email:subscribe.email});
+    };
+
+    //Tawk.to
         (function(){
             var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
             s1.async=true;
@@ -21,8 +42,19 @@ class Footer extends Component {
                             <div className="subscribe">
                             <center>
                             <h3><Icon type="message"  theme="twoTone" twoToneColor="#ff7a45" /> NEWSLETTER</h3>
-                            <form className="validate form-inline subscribe-form">
-                                <input type="email" className="required email form-control" name="EMAIL"
+                                { currentState.Subscribe.error && currentState.Subscribe.error.Required_email ? (
+                                    <p className="text-danger">{currentState.Subscribe.error.Required_email}</p>
+                                ) : (
+                                    ""
+                                )}
+                                { currentState.Subscribe.error && currentState.Subscribe.error.Invalid_email ? (
+                                    <p className="text-danger">{currentState.Subscribe.error.Invalid_email}</p>
+                                ) : (
+                                    ""
+                                )}
+                            <form onSubmit={submitUser} className="validate form-inline subscribe-form">
+                                <input type="email" className="required email form-control" name="email"
+                                                onChange={handleChange}
                                                placeholder="Enter Your Email" id="mce-EMAIL" required=""/>&nbsp; &nbsp;
                                     <button type="submit" className="btn btn-solid" name="subscribe"
                                             id="mc-embedded-subscribe"
@@ -102,7 +134,7 @@ class Footer extends Component {
                 </footer>
             </div>
         );
-    }
-}
+    };
+
 
 export default Footer;
