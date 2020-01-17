@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Icon, Row, Col, message} from 'antd';
+import { Icon, Row, Col } from 'antd';
 import '../css/Footer.css';
 import logo from '../assests/logo.png';
 import {useDispatch, useSelector} from "react-redux";
@@ -53,7 +53,7 @@ const Footer = () => {
                                     ""
                                 )}
                                 { currentState.Subscribe.error && currentState.Subscribe.error.Taken_email ? (
-                                   message.error(currentState.Subscribe.error.Taken_email)
+                                    <p className="text-danger">{currentState.Subscribe.error.Taken_email}</p>
                                 ) : (
                                     ""
                                 )}
