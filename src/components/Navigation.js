@@ -1,9 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 import '../css/Navigation.css';
-import {Menu, Dropdown, Icon, Badge} from 'antd';
+import {Menu, Dropdown, Icon, Input} from 'antd';
 import logo from "../assests/logo.png";
 import { useSelector, useDispatch } from "react-redux";
 import {SignOut} from "../store/auth/actions/authActions";
+import {fetchProducts} from "../store/products/actions/productsAction";
+import SearchBar from "./SearchBar";
+
 
 const Navigation = () => {
 
@@ -19,6 +22,16 @@ const Navigation = () => {
         e.preventDefault();
         logoutUser()
     };
+
+    const products = currentState.Products.products;
+
+    const getProducts = () => dispatch(fetchProducts());
+
+    useEffect(()=>{
+        getProducts();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
+
     const SignedInLinks = (
         <Menu>
             <Menu.Item>
@@ -64,10 +77,7 @@ const Navigation = () => {
                     </div>
                     <div className="col">
                         <div className="basket d-none d-md-block">
-                            <ul>
-                                <li><i className="fa fa-cog fa-2x" aria-hidden="true"/></li>
-                                <li><i className="fa fa-home fa-2x" aria-hidden="true"/></li>
-                            </ul>
+                            <SearchBar/>
                         </div>
                         <div className="basket d-block d-md-none">
                             <ul>

@@ -6,7 +6,6 @@ import CartProduct from "./CartProduct";
 import '../css/FloatCart.css';
 import {message} from "antd";
 import PropTypes from 'prop-types';
-
 class FloatCart extends Component {
     static propTypes = {
         loadCart: PropTypes.func.isRequired,

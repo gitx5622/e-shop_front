@@ -10,12 +10,11 @@
     color: white;
 }
 
-.basket li {
-    float: right;
-    padding-right: 20px;
+.basket {
+    margin-right: 230px;
+    margin-top: 20px;
     font-family: 'Roboto', sans-serif;
     font-weight: bolder;
-
 }
 
 @media (max-width: 768px) {

@@ -15,6 +15,7 @@ import {ADD_PRODUCT} from "./store/cart/actionTypes";
 const composeEnhances = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, composeEnhances(applyMiddleware(thunk, logger)));
 
+
 // when the page reloads, the auth user is still set
 if (localStorage.token) {
     setAuthorizationToken(localStorage.token);

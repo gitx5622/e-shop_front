@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {Input} from "antd";
 import axios from 'axios';
 import API_ROUTE from "../constants";
-
+import '../css/SearchBar.css';
 
 class SearchBar extends Component {
 
@@ -23,7 +22,7 @@ class SearchBar extends Component {
         const pageNumber = updatedPageNo ? `&page=${updatedPageNo}` : '';
 
         // By default the limit of results is 20
-        const searchUrl = `${API_ROUTE}/posts?e&q=${query}${pageNumber}`;
+        const searchUrl = `${API_ROUTE}/getproducts?e&q=${query}${pageNumber}`;
 
         if (this.cancel) {
             // Cancel the previous request before making a new request
@@ -59,20 +58,23 @@ class SearchBar extends Component {
     renderSearchResults = () => {
         const {results, query} = this.state;
         const filteredCharacters = results.filter(post => {
-            return (post.content && post.title).toLowerCase().includes(query.toLowerCase());
+            return post.title.toLowerCase().includes(query.toLowerCase());
         });
         if (Object.keys(results).length && results.length) {
             return (
-                <div className="results-container" style={{height: "400px"}}>
-                    {filteredCharacters && filteredCharacters.map(result => {
+                <div className="results-container">
+                    {filteredCharacters && filteredCharacters.slice(1,9).map(result => {
                         return (
-                            <a key={result.id} href={'/posts/' + result.id} className="result-items"
+                            <a key={result.id} href={'/product/' + result.id} className="result-items"
                                style={{textDecoration: "none"}}>
-                                <div className="card" style={{width: "300px"}}>
-                                    <ul className="list-group list-group-flush">
-                                        <li className="list-group-item"
-                                            style={{borderBottom: "1px solid whitesmoke"}}>{result.title}</li>
-                                        <li className="list-group-item">{result.content}</li>
+                                <div style={{width: "530px"}}>
+                                    <ul className="search-results">
+                                        <li>
+                                           <img src={result.image_url_1} alt="image1" width="40px" height="40px"/>
+                                        </li>
+                                        <li>
+                                            {result.title}
+                                        </li>
                                     </ul>
                                 </div>
                             </a>
@@ -101,26 +103,26 @@ class SearchBar extends Component {
         const {query} = this.state;
         return (
             <div>
-                {/*Heading*/}
-                <h2 className="heading">Search Posts</h2>
 
                 {/*Search Input*/}
 
                 <label className="search-label" htmlFor="search-input">
-                    <Input
-                        style={{borderRadius: "50px", width: "290px"}}
-                        type="text"
-                        value={query}
-                        id="search-input"
-                        placeholder="Search..."
-                        enterButton="Search"
-                        size="large"
-                        onChange={this.handleOnInputChange}
-                    />
-
+                    <div className="input-group mb-3">
+                        <input type="text" className="form-control"
+                               value={query}
+                               onChange={this.handleOnInputChange}
+                               style={{width:"600px",borderTopLeftRadius:"10px",borderBottomLeftRadius:"10px"}}
+                               placeholder="Search for a product ...."/>
+                        <div className="input-group-append">
+                            <button onClick={this.renderSearchResults} type="submit" className="btn btn-solid"
+                                    style={{padding:"5px",borderTopRightRadius:"10px",borderBottomRightRadius:"10px"}}>
+                                Search
+                            </button>
+                        </div>
+                    </div>
                 </label>
                 {/*Result*/}
-                <div style={{overflowX: "hidden", overflowY: "auto", position: "absolute"}}>
+                <div style={{position: "absolute",zIndex:100}}>
                     {this.renderSearchResults()}
                 </div>
             </div>
