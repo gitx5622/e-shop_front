@@ -7,6 +7,8 @@ import MainBody from "./components/MainBody";
 import ProductDetails from "./components/ProductDetails";
 import Layout1 from "./components/Layout1";
 import FloatCart from "./components/FloatCart";
+import Checkout from "./components/Checkout";
+import Payment from "./components/Payment";
 
 class App extends Component {
     render() {
@@ -19,6 +21,8 @@ class App extends Component {
                        <Route path="/login" component={Login} />
                        <Route path='/register' component={Register} />
                        <Route exact path="/product/:id" component={ProductDetails} />
+                       <Route exact path="/checkout" component={Checkout} />
+                       <Route exact path="/payment" component={Payment} />
                        </Switch>
                </Layout1>
                <FloatCart/>

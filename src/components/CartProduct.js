@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import {formatPrice} from "../utils";
 
 class CartProduct extends Component {
 
@@ -65,12 +66,11 @@ class CartProduct extends Component {
                     {/*<img src={product.image_url_1} className="card-img-top mr-3"  alt="..." height="50px"/>*/}
                     <p className="title">{product.title}</p>
                     <p className="desc">
-                        {`${product.style}`} <br />
                         Quantity: {product.quantity}
                     </p>
                 </div>
                 <div className="shelf-item__price">
-                    <p>{product.price}</p>
+                    <p>{formatPrice(product.price)}</p>
                     <div>
                         <button onClick={this.handleOnDecrease} disabled={product.quantity === 1} className="change-product-button">-</button>
                         <button onClick={this.handleOnIncrease} className="change-product-button">+</button>

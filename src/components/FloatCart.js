@@ -1,12 +1,19 @@
-import React, {Component} from 'react';
-import { connect } from 'react-redux';
+import React, {Component, useEffect} from 'react';
+import {connect, useSelector} from 'react-redux';
 import { loadCart, removeProduct, changeProductQuantity} from '../store/cart/cartAction/cartActions';
 import { updateCart } from '../store/total/totalAction/totalActions';
 import CartProduct from "./CartProduct";
 import '../css/FloatCart.css';
 import {message} from "antd";
 import PropTypes from 'prop-types';
+import {formatPrice} from "../utils";
+import {history} from "../history";
+import {fetchAuthAddress} from "../store/address/actions/addressAction";
+
+
+
 class FloatCart extends Component {
+
     static propTypes = {
         loadCart: PropTypes.func.isRequired,
         updateCart: PropTypes.func.isRequired,
@@ -16,6 +23,9 @@ class FloatCart extends Component {
         productToRemove: PropTypes.object,
         changeProductQuantity: PropTypes.func,
         productToChange: PropTypes.object,
+        isAuthenticated: PropTypes.bool.isRequired,
+        authAddress: PropTypes.array.isRequired,
+        fetchAuthAddress: PropTypes.func,
     };
 
     constructor() {
@@ -65,8 +75,8 @@ class FloatCart extends Component {
     };
 
     componentDidMount() {
-        const { cartProducts } = this.props;
-        localStorage.setItem('cartItems', JSON.stringify(cartProducts));
+       const { fetchAuthAddress, currentUser } = this.props;
+        fetchAuthAddress(currentUser);
     }
 
 
@@ -90,9 +100,19 @@ class FloatCart extends Component {
         if (!productQuantity) {
             message.error('Add some product in the cart!');
         } else {
-            message.success(
-                `Checkout - Subtotal: ${currencyFormat} ${totalPrice}`
-            );
+                message.success(
+                    `Checkout - Subtotal: ${currencyFormat} ${formatPrice(totalPrice)}`
+                );
+        }
+        if (!this.props.isAuthenticated){
+            this.closeFloatCart();
+            history.push('/login')
+        }else if (!this.props.authAddress){
+            this.closeFloatCart();
+            history.push('/checkout')
+        } else {
+            this.closeFloatCart();
+            history.push('/payment')
         }
     };
 
@@ -163,7 +183,7 @@ class FloatCart extends Component {
                         <div className="sub">SUBTOTAL</div>
                         <div className="sub-price">
                             <p className="sub-price__val">
-                                {cartTotal.currencyFormat} {cartTotal.totalPrice}
+                                {cartTotal.currencyFormat} {formatPrice(cartTotal.totalPrice)}
                             </p>
                         </div>
                         <div onClick={() => this.proceedToCheckout()} className="buy-btn">
@@ -181,7 +201,11 @@ const mapStateToProps = state => ({
     newProduct: state.Cart.productToAdd,
     productToRemove: state.Cart.productToRemove,
     productToChange: state.Cart.productToChange,
-    cartTotal: state.Total.data
+    cartTotal: state.Total.data,
+    isAuthenticated: state.Auth.isAuthenticated,
+    authAddress: state.Address.authAddress,
+    currentUser: state.Auth.currentUser.id,
 });
 
-export default connect(mapStateToProps,{ loadCart, updateCart, removeProduct, changeProductQuantity } )(FloatCart);
+
+export default connect(mapStateToProps, { fetchAuthAddress,loadCart, updateCart, removeProduct, changeProductQuantity } )(FloatCart);
