@@ -126,7 +126,7 @@ const MainBody = (props) => {
                                                 <li><a href="#/" data-tip="Quick View"><i className="fa fa-search"/></a></li>
                                                 <li><a href="#/" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"/></a>
                                                 </li>
-                                                <li><a  data-tip="Add to Cart" onClick={() => props.addProduct(product)} ><i className="fa fa-shopping-cart"/></a></li>
+                                                <li><a  data-tip="Add to Cart" onClick={() => props.addProduct(product.quantity)} ><i className="fa fa-shopping-cart"/></a></li>
                                             </ul>
                                         </div>
                                     </div>
