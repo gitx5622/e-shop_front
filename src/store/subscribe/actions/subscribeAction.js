@@ -16,7 +16,7 @@ export const emailSubscribe = (email) => {
                 type: SUBSCRIBED_SUCCESS,
                 payload: res.data.response
             });
-            message.success("You email have been subscribed successfully")
+            message.success("Your email have been subscribed successfully")
         } catch(err) {
             dispatch({ type: SUBSCRIBED_ERROR, payload: err.response.data.error });
         }
