@@ -5,6 +5,7 @@ import Cart from "../cart/cartReducer/cartReducer";
 import Total from "../total/totalReducer/totalReducer";
 import {subscribeState} from "../subscribe/reducer/subscribeReducer";
 import {addressState} from "../address/reducer/addressReducer";
+import {paymentState} from "../payment/reducer/paymentReducer";
 
 
 const reducer = combineReducers({
@@ -14,6 +15,7 @@ const reducer = combineReducers({
     Total: Total,
     Subscribe: subscribeState,
     Address:addressState,
+    Payment:paymentState,
 
 });
 

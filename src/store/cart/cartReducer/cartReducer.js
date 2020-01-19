@@ -4,6 +4,7 @@ const initialState = {
     products: [],
 };
 
+
  const Cart = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_CART:

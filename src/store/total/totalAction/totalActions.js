@@ -1,5 +1,6 @@
 import { UPDATE_CART } from '../actionTypes';
 
+
 export const updateCart = cartProducts => dispatch => {
     let productQuantity = cartProducts.reduce((sum, p) => {
         sum += p.quantity;
@@ -21,5 +22,6 @@ export const updateCart = cartProducts => dispatch => {
         type: UPDATE_CART,
         payload: cartTotal
     });
+    localStorage.setItem('cartTotal', JSON.stringify(cartTotal));
 };
 

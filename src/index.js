@@ -10,7 +10,8 @@ import thunk from 'redux-thunk';
 import reducer from "./store/combinedReducer";
 import setAuthorizationToken from "./authorization";
 import {LOGIN_SUCCESS} from "./store/auth/actionTypes";
-import {ADD_PRODUCT} from "./store/cart/actionTypes";
+import {LOAD_CART} from "./store/cart/actionTypes";
+import {UPDATE_CART} from "./store/total/actionTypes";
 
 const composeEnhances = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, composeEnhances(applyMiddleware(thunk, logger)));
@@ -21,9 +22,14 @@ if (localStorage.token) {
     setAuthorizationToken(localStorage.token);
     let userData = localStorage.getItem('user_data') == null ? null : JSON.parse(localStorage.getItem('user_data'));
     store.dispatch({ type: LOGIN_SUCCESS, payload: userData}) //provided he has a valid token
-    let cartItems = localStorage.getItem('cartItems') == null ? null : JSON.parse(localStorage.getItem('cartItems'));
-    store.dispatch({type: ADD_PRODUCT, payload: cartItems});
-
+}
+if (localStorage.myCart) {
+    let cartProducts = localStorage.getItem('myCart') == null ? null : JSON.parse(localStorage.getItem('myCart'));
+    store.dispatch({type: LOAD_CART, payload: cartProducts}); //provided he has added item to cart
+}
+if (localStorage.cartTotal) {
+    let cartTotal = localStorage.getItem('cartTotal') == null ? null : JSON.parse(localStorage.getItem('cartTotal'));
+    store.dispatch({type: UPDATE_CART, payload: cartTotal}); //provided he has added item to cart
 }
 
 const app = (

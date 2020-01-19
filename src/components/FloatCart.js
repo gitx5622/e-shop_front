@@ -8,7 +8,6 @@ import {message} from "antd";
 import PropTypes from 'prop-types';
 import {formatPrice} from "../utils";
 import {history} from "../history";
-import {fetchAuthAddress} from "../store/address/actions/addressAction";
 
 
 
@@ -24,8 +23,6 @@ class FloatCart extends Component {
         changeProductQuantity: PropTypes.func,
         productToChange: PropTypes.object,
         isAuthenticated: PropTypes.bool.isRequired,
-        authAddress: PropTypes.array.isRequired,
-        fetchAuthAddress: PropTypes.func,
     };
 
     constructor() {
@@ -71,14 +68,9 @@ class FloatCart extends Component {
             cartProducts.push(product);
         }
         updateCart(cartProducts);
+        localStorage.setItem('myCart', JSON.stringify(cartProducts));
         this.openFloatCart();
     };
-
-    componentDidMount() {
-       const { fetchAuthAddress, currentUser } = this.props;
-        fetchAuthAddress(currentUser);
-    }
-
 
     removeProduct = product => {
         const { cartProducts, updateCart } = this.props;
@@ -203,9 +195,7 @@ const mapStateToProps = state => ({
     productToChange: state.Cart.productToChange,
     cartTotal: state.Total.data,
     isAuthenticated: state.Auth.isAuthenticated,
-    authAddress: state.Address.authAddress,
-    currentUser: state.Auth.currentUser.id,
 });
 
 
-export default connect(mapStateToProps, { fetchAuthAddress,loadCart, updateCart, removeProduct, changeProductQuantity } )(FloatCart);
+export default connect(mapStateToProps, { loadCart, updateCart, removeProduct, changeProductQuantity } )(FloatCart);
