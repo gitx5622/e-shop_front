@@ -86,20 +86,20 @@ const MainBody = (props) => {
                                                     <li><a  data-tip="View Product"
                                                             onClick={() => history.push(`product/${product.id}/`)}
                                                             producta-tip="Quick View"><i className="fa fa-eye"/></a></li>
-                                                    <li><a href="/login" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"/></a></li>
-                                                    <li><a href="/login" data-tip="Add to Cart"><i className="fa fa-shopping-cart"/></a></li>
+                                                    <li><a data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"/></a></li>
+                                                    <li><a data-tip="Add to Cart"><i className="fa fa-shopping-cart"/></a></li>
                                                 </ul>
                                                 <span className="product-new-label">New</span>
                                                 <span className="product-discount-label">{product.discout_price}%</span>
                                             </div>
                                             <div className="product-content">
-                                                <h3 className="title"><a href="/login">{product.title}</a></h3>
+                                                <h3 className="title"><a onClick={() => history.push(`product/${product.id}/`)}>{product.title}</a></h3>
                                                 <div className="price">
                                                     $ {product.price} &nbsp;
                                                     <span>20.00</span>
                                                 </div>
 
-                                                <button className="add-to-cart" onClick={() => props.addProduct(product)} >ADD TO CART</button>
+                                                <button className="add-to-cart" onClick={() => history.push(`product/${product.id}/`)} >ADD TO CART</button>
 
                                             </div>
                                         </div>
@@ -117,7 +117,7 @@ const MainBody = (props) => {
                                                 </a>
                                             </div>
                                             <div className="product-content">
-                                                <h3 className="title"><a href="#/">{product.title}</a></h3>
+                                                <h3 className="title"><a onClick={() => history.push(`product/${product.id}/`)}>{product.title}</a></h3>
                                                 <div className="price">{product.price}
                                                     <span>$14.00</span>
                                                 </div>
@@ -126,7 +126,7 @@ const MainBody = (props) => {
                                                 <li><a href="#/" data-tip="Quick View"><i className="fa fa-search"/></a></li>
                                                 <li><a href="#/" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"/></a>
                                                 </li>
-                                                <li><a  data-tip="Add to Cart" onClick={() => props.addProduct(product.quantity)} ><i className="fa fa-shopping-cart"/></a></li>
+                                                <li><a  data-tip="Add to Cart" onClick={() => history.push(`product/${product.id}/`)}><i className="fa fa-shopping-cart"/></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -165,13 +165,13 @@ const MainBody = (props) => {
                                             <span className="product-discount-label">{product.discout_price}%</span>
                                         </div>
                                         <div className="product-content">
-                                            <h3 className="title"><a href="/login">{product.title}</a></h3>
+                                            <h3 className="title"><a onClick={() => history.push(`product/${product.id}/`)}>{product.title}</a></h3>
                                             <div className="price">
                                                 $ {product.price} &nbsp;
                                                 <span>20.00</span>
                                             </div>
 
-                                            <button className="add-to-cart" onClick={() => props.addProduct(product)}>ADD TO CART</button>
+                                            <button className="add-to-cart" onClick={() => history.push(`product/${product.id}/`)}>ADD TO CART</button>
 
                                         </div>
                                     </div>
