@@ -83,6 +83,7 @@ class FloatCart extends Component {
     };
 
     proceedToCheckout = () => {
+        const { cartProducts } = this.props;
         const {
             totalPrice,
             productQuantity,
@@ -96,13 +97,16 @@ class FloatCart extends Component {
                     `Checkout - Subtotal: ${currencyFormat} ${formatPrice(totalPrice)}`
                 );
         }
+
         if (!this.props.isAuthenticated){
             this.closeFloatCart();
             history.push('/login')
         }else if (!this.props.authAddress){
             this.closeFloatCart();
             history.push('/checkout')
-        } else {
+        }else if (!productQuantity) {
+            history.push('/')
+        }else {
             this.closeFloatCart();
             history.push('/payment')
         }

@@ -74,7 +74,7 @@ const Payment = () => {
                         <form onSubmit={handleSubmit}>
                             <h6>Payment</h6>
                             <p>All transactions are secure and encrypted.</p>
-                            <img src={mpesa} width="550px"/>
+                            <img src={mpesa} width="550px" style={{borderRadius:"10px"}}/>
                             <div className="card">
                                 <div className="card-header">
                                    M-Pesa Details
@@ -82,7 +82,7 @@ const Payment = () => {
                                 <br/>
                                 <div className="container">
                                     <div className="form-group">
-                                        <input type="text" name="party_a" onChange={handleChange} className="form-control" placeholder="Phonenumber"/>
+                                        <input type="text" name="party_a" onChange={handleChange} className="form-control" placeholder="For example: 254712345678"/>
                                     </div>
                                     <br/>
                                     <div className="form-group">
