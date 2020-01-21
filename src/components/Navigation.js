@@ -70,25 +70,30 @@ const Navigation = () => {
                 </div>
             <div className="container">
                 <div className="row logo-basket p-4">
-                    <div className="col">
+                    <div className="col-3">
                         <ul>
-                            <li><a href="/"><img src={logo} alt="logo" width="80px" height="40px"/></a></li>
+                            <li><a href="/"><img src={logo} alt="logo" width="100px" height="60px"/></a></li>
                         </ul>
                     </div>
-                    <div className="col">
+                    <div className="col-6">
                         <div className="basket d-none d-md-block">
                             <SearchBar/>
                         </div>
-                        <div className="basket d-block d-md-none">
-                            <ul>
-                                <li>
-                                    <Dropdown overlay={ isAuthenticated ? SignedOutLinks: SignedInLinks }>
-                                        <a className="ant-dropdown-link">
-                                            <i className="fa fa-user fa-2x" aria-hidden="true"/>
-                                        </a></Dropdown>
-                                </li>
-                            </ul>
-                        </div>
+                    </div>
+                    <div className="col-3">
+                        <ul className="navleft-icons">
+                            <div className="basket d-block d-md-none">
+                                <ul>
+                                    <li style={{marginTop:"-12px"}}>
+                                        <Dropdown overlay={ isAuthenticated ? SignedOutLinks: SignedInLinks }>
+                                            <a className="ant-dropdown-link">
+                                                <Icon type="user" style={{fontSize:"30px"}} />
+                                            </a></Dropdown>
+                                    </li>
+                                </ul>
+                            </div>
+                            <li className="d-none d-md-block"><Icon type="setting" style={{fontSize:"30px"}} /></li>
+                        </ul>
                     </div>
                 </div>
 

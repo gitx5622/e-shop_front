@@ -12,6 +12,8 @@ const Payment = () => {
 
     const addressSelector = useSelector((state) => state.Address);
 
+    const cartProductsSelector = useSelector((state) => state.cartProducts);
+
     const dispatch = useDispatch();
 
     const getAuthAddress = id => dispatch(fetchAuthAddress(id));
@@ -101,11 +103,15 @@ const Payment = () => {
                                 <div className="col">
                                     <div className="row">
                                         <div className="col">
-                                            <ul className="checkout">
-                                                <li>Image</li>
-                                                <li>Title</li>
-                                                <li>Total</li>
-                                            </ul>
+                                                {cartProductsSelector && cartProductsSelector.map(product => {
+                                                    return (
+                                                        <ul key={product.id} className="checkout">
+                                                        <li>{product.title}</li>
+                                                        <li>Title</li>
+                                                        <li>Total</li>
+                                                        </ul>
+                                                    )
+                                                })}
                                         </div>
                                     </div>
                                     <hr/>

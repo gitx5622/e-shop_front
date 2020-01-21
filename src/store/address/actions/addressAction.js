@@ -39,7 +39,7 @@ export const fetchAuthAddress = id => {
             const res  = await axios.get(`${API_ROUTE}/user_address/${id}`);
             dispatch({ type: FETCH_AUTH_ADDRESS_SUCCESS, payload: res.data.response })
         } catch(err){
-            dispatch({ type: FETCH_AUTH_ADDRESS_ERROR, payload: err.response.data.error })
+            dispatch({ type: FETCH_AUTH_ADDRESS_ERROR, payload: err})
         }
     }
 };

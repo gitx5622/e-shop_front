@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import API_ROUTE from "../constants";
 import '../css/SearchBar.css';
-import {message} from "antd";
 
 class SearchBar extends Component {
 

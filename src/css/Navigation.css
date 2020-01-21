@@ -17,6 +17,12 @@
     font-weight: bolder;
 }
 
+.navleft-icons li{
+    display: inline;
+    float: right;
+    padding: 20px;
+}
+
 @media (max-width: 768px) {
     .top-header {
         display: none;
@@ -24,6 +30,11 @@
     .basket li {
         display: inline;
         padding-right: 0px;
+    }
+
+    .navleft-icons li{
+        display: inline;
+        padding: 10px;
     }
 
 }

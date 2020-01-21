@@ -11,6 +11,7 @@ import {fetchProducts} from "../store/products/actions/productsAction";
 import {addProduct} from "../store/cart/cartAction/cartActions";
 import {history} from "../history";
 import PropTypes from "prop-types";
+import {formatPrice} from "../utils";
 
 
 const MainBody = (props) => {
@@ -95,7 +96,7 @@ const MainBody = (props) => {
                                             <div className="product-content">
                                                 <h3 className="title"><a onClick={() => history.push(`product/${product.id}/`)}>{product.title}</a></h3>
                                                 <div className="price">
-                                                    $ {product.price} &nbsp;
+                                                    Kshs {formatPrice(product.price)} &nbsp;
                                                     <span>20.00</span>
                                                 </div>
 
@@ -118,7 +119,7 @@ const MainBody = (props) => {
                                             </div>
                                             <div className="product-content">
                                                 <h3 className="title"><a onClick={() => history.push(`product/${product.id}/`)}>{product.title}</a></h3>
-                                                <div className="price">{product.price}
+                                                <div className="price"> Kshs {formatPrice(product.price)}
                                                     <span>$14.00</span>
                                                 </div>
                                             </div>
@@ -167,7 +168,7 @@ const MainBody = (props) => {
                                         <div className="product-content">
                                             <h3 className="title"><a onClick={() => history.push(`product/${product.id}/`)}>{product.title}</a></h3>
                                             <div className="price">
-                                                $ {product.price} &nbsp;
+                                                Kshs {formatPrice(product.price)} &nbsp;
                                                 <span>20.00</span>
                                             </div>
 

@@ -44,7 +44,8 @@ export const SignOut = () => {
         localStorage.removeItem("token");
         setAuthorizationToken(false);
         dispatch({ type: LOGOUT_SUCCESS });
-        window.localStorage.clear(); //update the localstorage
+        window.localStorage.clear();//update the localstorage
+        window.location.reload(false);
         history.push('/login');
     }
 };
