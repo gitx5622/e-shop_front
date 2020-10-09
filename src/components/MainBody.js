@@ -98,6 +98,7 @@ const MainBody = (props) => {
                     <div className="product-grid4">
                       <div className="product-image4">
                         <a
+                          href
                           onClick={() => history.push(`product/${product.id}/`)}
                         >
                           <img
@@ -114,6 +115,7 @@ const MainBody = (props) => {
                         <ul className="social">
                           <li>
                             <a
+                              href
                               data-tip="View Product"
                               onClick={() =>
                                 history.push(`product/${product.id}/`)
@@ -124,12 +126,12 @@ const MainBody = (props) => {
                             </a>
                           </li>
                           <li>
-                            <a data-tip="Add to Wishlist">
+                            <a href data-tip="Add to Wishlist">
                               <i className="fa fa-shopping-bag" />
                             </a>
                           </li>
                           <li>
-                            <a data-tip="Add to Cart">
+                            <a href data-tip="Add to Cart">
                               <i className="fa fa-shopping-cart" />
                             </a>
                           </li>
@@ -142,6 +144,7 @@ const MainBody = (props) => {
                       <div className="product-content">
                         <h3 className="title">
                           <a
+                            href
                             onClick={() =>
                               history.push(`product/${product.id}/`)
                             }
@@ -174,6 +177,7 @@ const MainBody = (props) => {
                     <div className="product-grid6">
                       <div className="product-image6">
                         <a
+                          href
                           onClick={() => history.push(`product/${product.id}/`)}
                         >
                           <img
@@ -186,6 +190,7 @@ const MainBody = (props) => {
                       <div className="product-content">
                         <h3 className="title">
                           <a
+                            href
                             onClick={() =>
                               history.push(`product/${product.id}/`)
                             }
@@ -212,6 +217,7 @@ const MainBody = (props) => {
                         </li>
                         <li>
                           <a
+                            href
                             data-tip="Add to Cart"
                             onClick={() =>
                               history.push(`product/${product.id}/`)
@@ -248,7 +254,10 @@ const MainBody = (props) => {
                 <div key={product.id} className="col-md-3 sm-6">
                   <div className="product-grid4">
                     <div className="product-image4">
-                      <a onClick={() => history.push(`product/${product.id}/`)}>
+                      <a
+                        href
+                        onClick={() => history.push(`product/${product.id}/`)}
+                      >
                         <img
                           className="pic-1"
                           src={product.image_url_1}
@@ -263,6 +272,7 @@ const MainBody = (props) => {
                       <ul className="social">
                         <li>
                           <a
+                            href
                             data-tip="View Product"
                             onClick={() =>
                               history.push(`product/${product.id}/`)
@@ -291,6 +301,7 @@ const MainBody = (props) => {
                     <div className="product-content">
                       <h3 className="title">
                         <a
+                          href
                           onClick={() => history.push(`product/${product.id}/`)}
                         >
                           {product.title}

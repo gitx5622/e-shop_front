@@ -42,7 +42,9 @@ const Navigation = () => {
   const SignedOutLinks = (
     <Menu>
       <Menu.Item>
-        <a onClick={logout}>Logout</a>
+        <a href onClick={logout}>
+          Logout
+        </a>
       </Menu.Item>
     </Menu>
   );
@@ -64,7 +66,7 @@ const Navigation = () => {
               <Dropdown
                 overlay={isAuthenticated ? SignedOutLinks : SignedInLinks}
               >
-                <a className="ant-dropdown-link">
+                <a href className="ant-dropdown-link">
                   My Account
                   <DownOutlined />
                 </a>
@@ -101,7 +103,7 @@ const Navigation = () => {
                     <Dropdown
                       overlay={isAuthenticated ? SignedOutLinks : SignedInLinks}
                     >
-                      <a className="ant-dropdown-link">
+                      <a href className="ant-dropdown-link">
                         <UserOutlined style={{ fontSize: "30px" }} />
                       </a>
                     </Dropdown>
