@@ -1,10 +1,9 @@
 .accounts li {
-    display: inline;
-    padding: 40px;
+  display: inline;
+  padding: 40px;
 }
 
 .form-group input {
-    border-radius: unset;
-    height: 50px;
+  border-radius: unset;
+  height: 50px;
 }
-

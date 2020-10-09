@@ -1,40 +1,39 @@
 .top-header {
-    padding-top: 8px;
-    color: white;
+  padding-top: 8px;
+  color: white;
 }
 .top-header li {
-    display: inline;
-    padding-left: 20px;
+  display: inline;
+  padding-left: 20px;
 }
 .ant-dropdown-link {
-    color: white;
+  color: white;
 }
 
 .basket {
-    margin-right: 230px;
-    margin-top: 20px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bolder;
+  margin-right: 230px;
+  margin-top: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bolder;
 }
 
-.navleft-icons li{
-    display: inline;
-    float: right;
-    padding: 20px;
+.navleft-icons li {
+  display: inline;
+  float: right;
+  padding: 20px;
 }
 
 @media (max-width: 768px) {
-    .top-header {
-        display: none;
-    }
-    .basket li {
-        display: inline;
-        padding-right: 0px;
-    }
+  .top-header {
+    display: none;
+  }
+  .basket li {
+    display: inline;
+    padding-right: 0px;
+  }
 
-    .navleft-icons li{
-        display: inline;
-        padding: 10px;
-    }
-
+  .navleft-icons li {
+    display: inline;
+    padding: 10px;
+  }
 }

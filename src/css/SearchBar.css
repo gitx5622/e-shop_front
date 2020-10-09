@@ -1,12 +1,12 @@
 .results-container {
-    max-height: 450px;
-    background-color: white;
+  max-height: 450px;
+  background-color: white;
 }
 .search-results li {
-    display: inline;
+  display: inline;
 }
 
 .result-items {
-    color: black;
-    font-family: 'Roboto', sans-serif;
+  color: black;
+  font-family: "Roboto", sans-serif;
 }

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Icon, Row, Col } from 'antd';
+import { Row, Col } from 'shards-react';
 import '../css/Footer.css';
 import logo from '../assests/logo.png';
 import {useDispatch, useSelector} from "react-redux";
@@ -41,7 +41,7 @@ const Footer = () => {
                         <div className="container">
                             <div className="subscribe">
                             <center>
-                            <h3><Icon type="message"  theme="twoTone" twoToneColor="#ff7a45" /> NEWSLETTER</h3>
+                            {/* <h3><Icon type="message"  theme="twoTone" twoToneColor="#ff7a45" /> NEWSLETTER</h3> */}
                                 { currentState.Subscribe.error && currentState.Subscribe.error.Required_email ? (
                                     <p className="text-danger">{currentState.Subscribe.error.Required_email}</p>
                                 ) : (
