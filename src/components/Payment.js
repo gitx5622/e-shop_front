@@ -58,10 +58,11 @@ const Payment = ({ cartTotal }) => {
             <p>All transactions are secure and encrypted.</p>
             <img
               src={mpesa}
-              width="70%"
+              width="100%"
               style={{ borderRadius: "10px" }}
               alt=""
             />
+            <br/>
             <div className="card">
               <div className="card-header">M-Pesa Details</div>
               <br />
@@ -82,10 +83,9 @@ const Payment = ({ cartTotal }) => {
                  <input
                     type="text"
                     name="amount"
-                    onChange={handleChange}
-                    // value={cartTotal.totalPrice}
+                    disabled
+                    value={cartTotal.totalPrice}
                     className="form-control"
-                    placeholder="Enter Mpesa Number For example: 254712345678"
                   />
                 </div>
                 <br />
@@ -99,8 +99,10 @@ const Payment = ({ cartTotal }) => {
               Pay
             </button>
           </form>
+          <br/>
         </div>
         <div class="col">
+          <h3>Address</h3>
           <div className="row">
             {addressSelector.authAddress.map((address) => {
               return (
