@@ -20,7 +20,7 @@ const Payment = ({ cartTotal }) => {
   const sendPayment = (credentials) => dispatch(sendStkPush(credentials));
 
   const [payment, setPayment] = useState({
-    party_a: ""
+    party_a: "",
   });
 
   const handleChange = (e) => {
@@ -33,7 +33,7 @@ const Payment = ({ cartTotal }) => {
     e.preventDefault();
     sendPayment({
       party_a: payment.party_a,
-      amount: cartTotal.totalPrice
+      amount: cartTotal.totalPrice,
     });
     history.push("");
   };
@@ -50,8 +50,47 @@ const Payment = ({ cartTotal }) => {
   return (
     <div className="container">
       <h3>OnlineShoppingKenya</h3>
-      <div className="row">
-        <div className="col-md-10 offset-md-1">
+      <div class="row">
+        <div class="col">
+          <form onSubmit={handleSubmit}>
+            <h6>Payment</h6>
+            <p>All transactions are secure and encrypted.</p>
+            <img
+              src={mpesa}
+              width="50%"
+              style={{ borderRadius: "10px" }}
+              alt=""
+            />
+            <div className="card">
+              <div className="card-header">M-Pesa Details</div>
+              <br />
+              <div className="container">
+                <h3>
+                  A sum of {cartTotal.totalPrice} will be drawn from your Mpesa
+                  account
+                </h3>
+                <div className="form-group">
+                  <input
+                    type="text"
+                    name="party_a"
+                    onChange={handleChange}
+                    className="form-control"
+                    placeholder="Enter Mpesa Number For example: 254712345678"
+                  />
+                </div>
+                <br />
+              </div>
+            </div>
+            <br />
+            <button
+              type="submit"
+              className="btn btn-primary btn-lg btn-checkout"
+            >
+              Pay
+            </button>
+          </form>
+        </div>
+        <div class="col">
           <div className="row">
             {addressSelector.authAddress.map((address) => {
               return (
@@ -74,42 +113,6 @@ const Payment = ({ cartTotal }) => {
               );
             })}
           </div>
-          <br />
-          <form onSubmit={handleSubmit}>
-            <h6>Payment</h6>
-            <p>All transactions are secure and encrypted.</p>
-            <img
-              src={mpesa}
-              width="50%"
-              style={{ borderRadius: "10px" }}
-              alt=""
-            />
-            <div className="card">
-              <div className="card-header">M-Pesa Details</div>
-              <br />
-              <div className="container">
-              <h3>A sum of {cartTotal.totalPrice} will be drawn from your Mpesa account</h3>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="party_a"
-                    onChange={handleChange}
-                    className="form-control"
-                    placeholder="Enter Mpesa Number For example: 254712345678"
-                  />
-                </div>
-                <br />
-              </div>
-            </div>
-            <br />
-            <button
-              type="submit"
-              className="btn btn-primary btn-lg btn-checkout"
-            >
-              Pay
-            </button>
-          </form>
-          <br />
         </div>
       </div>
     </div>
@@ -117,7 +120,7 @@ const Payment = ({ cartTotal }) => {
 };
 
 const mapStateToProps = (state) => ({
-  cartTotal: state.Total.data
+  cartTotal: state.Total.data,
 });
 
 export default connect(mapStateToProps)(Payment);
