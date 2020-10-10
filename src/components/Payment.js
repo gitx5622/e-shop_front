@@ -51,7 +51,7 @@ const Payment = () => {
     <div className="container">
       <h3>OnlineShoppingKenya</h3>
       <div className="row">
-        <div className="col col-offset-3">
+        <div className="col-md-6 offset-md-3">
           <div className="row">
             {addressSelector.authAddress.map((address) => {
               return (
