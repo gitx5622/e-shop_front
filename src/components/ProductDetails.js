@@ -4,6 +4,7 @@ import { getProduct } from "../store/products/actions/productsAction";
 import PropTypes from "prop-types";
 import { addProduct } from "../store/cart/cartAction/cartActions";
 import "../css/ProductsDetails.css";
+import { formatPrice } from "../utils";
 
 const ProductDetails = (props) => {
   const productID = props.match.params.id;
@@ -45,7 +46,7 @@ const ProductDetails = (props) => {
       >
         <div className="row">
           <div className="media">
-            <div className="col-md-6">
+            <div className="col">
               <div className=" details-image">
                 <img
                   src={product.image_url_1}
@@ -54,7 +55,7 @@ const ProductDetails = (props) => {
                 />
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col">
               <div className="media-body description">
                 <h3 className="mt-0">{product.title}</h3>
                 <h5>Allowed Discount:</h5>
@@ -64,7 +65,7 @@ const ProductDetails = (props) => {
                   Kshs {Math.ceil(product.price * (product.discout_price + 100)/ 100)}
                 </h5>
                 <br />
-                <h5>Kshs {product.price}</h5>
+                <h5>Kshs {formatPrice(product.price)}</h5>
                 <p>{product.description}</p>
                 <button
                   type="submit"
