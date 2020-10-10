@@ -5,6 +5,7 @@ import { Redirect } from "react-router-dom";
 import { history } from "../history";
 import { sendStkPush } from "../store/payment/actions/paymentAction";
 import mpesa from "../assests/mpesa_xpress.png";
+import { connect } from "react-redux";
 
 const Payment = () => {
   const currentState = useSelector((state) => state.Auth);
@@ -46,6 +47,8 @@ const Payment = () => {
   if (addressSelector.authAddress.length === 0) {
     return <Redirect to="/checkout" />;
   }
+
+  const { cartTotal } = this.props;
 
   return (
     <div className="container">
@@ -102,7 +105,7 @@ const Payment = () => {
                   <input
                     type="text"
                     name="amount"
-                    onChange={handleChange}
+                    value={cartTotal.totalPrcie}
                     className="form-control"
                     placeholder="Amount"
                   />
@@ -124,4 +127,8 @@ const Payment = () => {
   );
 };
 
-export default Payment;
+const mapStateToProps = (state) => ({
+  cartTotal: state.Total.data
+});
+
+export default connect(mapStateToProps)(Payment);
