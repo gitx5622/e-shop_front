@@ -51,7 +51,7 @@ const Payment = () => {
     <div className="container">
       <h3>OnlineShoppingKenya</h3>
       <div className="row">
-        <div className="col">
+        <div className="col col-offset-3">
           <div className="row">
             {addressSelector.authAddress.map((address) => {
               return (
@@ -80,7 +80,7 @@ const Payment = () => {
             <p>All transactions are secure and encrypted.</p>
             <img
               src={mpesa}
-              width="550px"
+              width="50%"
               style={{ borderRadius: "10px" }}
               alt=""
             />
