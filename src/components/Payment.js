@@ -78,10 +78,12 @@ const Payment = ({ cartTotal }) => {
                     className="form-control"
                     placeholder="Enter Mpesa Number For example: 254712345678"
                   />
+                  <br/>
                  <input
                     type="text"
                     name="amount"
-                    value={cartTotal.totalPrice}
+                    onChange={handleChange}
+                    // value={cartTotal.totalPrice}
                     className="form-control"
                     placeholder="Enter Mpesa Number For example: 254712345678"
                   />
