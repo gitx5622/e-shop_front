@@ -7,7 +7,7 @@ import { sendStkPush } from "../store/payment/actions/paymentAction";
 import mpesa from "../assests/mpesa_xpress.png";
 import { connect } from "react-redux";
 
-const Payment = () => {
+const Payment = ({ cartTotal }) => {
   const currentState = useSelector((state) => state.Auth);
   const authID = currentState.currentUser.id;
 
@@ -47,8 +47,6 @@ const Payment = () => {
   if (addressSelector.authAddress.length === 0) {
     return <Redirect to="/checkout" />;
   }
-
-  const { cartTotal } = this.props;
 
   return (
     <div className="container">
@@ -105,7 +103,7 @@ const Payment = () => {
                   <input
                     type="text"
                     name="amount"
-                    value={cartTotal.totalPrcie}
+                    value={cartTotal.totalPrice}
                     className="form-control"
                     placeholder="Amount"
                   />
