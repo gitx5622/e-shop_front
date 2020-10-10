@@ -21,6 +21,7 @@ const Payment = ({ cartTotal }) => {
 
   const [payment, setPayment] = useState({
     party_a: "",
+    amount: ""
   });
 
   const handleChange = (e) => {
@@ -33,7 +34,7 @@ const Payment = ({ cartTotal }) => {
     e.preventDefault();
     sendPayment({
       party_a: payment.party_a,
-      amount: cartTotal.totalPrice,
+      amount: payment.amount,
     });
     history.push("");
   };
@@ -57,7 +58,7 @@ const Payment = ({ cartTotal }) => {
             <p>All transactions are secure and encrypted.</p>
             <img
               src={mpesa}
-              width="50%"
+              width="70%"
               style={{ borderRadius: "10px" }}
               alt=""
             />
@@ -74,6 +75,13 @@ const Payment = ({ cartTotal }) => {
                     type="text"
                     name="party_a"
                     onChange={handleChange}
+                    className="form-control"
+                    placeholder="Enter Mpesa Number For example: 254712345678"
+                  />
+                 <input
+                    type="text"
+                    name="amount"
+                    value={cartTotal.totalPrice}
                     className="form-control"
                     placeholder="Enter Mpesa Number For example: 254712345678"
                   />
