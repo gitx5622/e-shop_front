@@ -21,7 +21,7 @@ const Payment = ({ cartTotal }) => {
 
   const [payment, setPayment] = useState({
     party_a: "",
-    amount: "",
+    amount: cartTotal.totalPrice,
   });
 
   const handleChange = (e) => {
@@ -81,7 +81,7 @@ const Payment = ({ cartTotal }) => {
             <p>All transactions are secure and encrypted.</p>
             <img
               src={mpesa}
-              width="100%"
+              width="70%"
               style={{ borderRadius: "10px" }}
               alt=""
             />
