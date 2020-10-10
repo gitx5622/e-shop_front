@@ -12,8 +12,6 @@ const Payment = () => {
 
   const addressSelector = useSelector((state) => state.Address);
 
-  const cartProductsSelector = useSelector((state) => state.cartProducts);
-
   const dispatch = useDispatch();
 
   const getAuthAddress = (id) => dispatch(fetchAuthAddress(id));
