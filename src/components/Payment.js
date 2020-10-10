@@ -121,50 +121,6 @@ const Payment = () => {
           </form>
           <br />
         </div>
-        <div className="col">
-          <div className="container">
-            <div className="row">
-              <div className="col">
-                <div className="row">
-                  <div className="col">
-                    {cartProductsSelector &&
-                      cartProductsSelector.map((product) => {
-                        return (
-                          <ul key={product.id} className="checkout">
-                            <li>{product.title}</li>
-                            <li>Title</li>
-                            <li>Total</li>
-                          </ul>
-                        );
-                      })}
-                  </div>
-                </div>
-                <hr />
-                <div className="row">
-                  <div className="col">
-                    <p>Subtotal</p>
-                    <p>Shipping</p>
-                  </div>
-                  <div className="col">
-                    <p>Subtotal</p>
-                    <p>Free Shipping</p>
-                  </div>
-                </div>
-                <hr />
-                <div className="row">
-                  <div className="col">
-                    <p>Total</p>
-                  </div>
-                  <div className="col">
-                    <h4>
-                      Kshs <strong>2,000</strong>
-                    </h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
