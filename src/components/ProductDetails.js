@@ -76,7 +76,7 @@ const ProductDetails = (props) => {
                 >
                   Add to Cart
                 </button>
-                &emsp;&emsp;
+                {/* &emsp;&emsp;
                 <button
                   type="submit"
                   className="btn btn-solid"
@@ -85,7 +85,7 @@ const ProductDetails = (props) => {
                   data-trans-key="general.newsletter_form.submit"
                 >
                   Buy Now
-                </button>
+                </button> */}
               </div>
               <br />
               <p>

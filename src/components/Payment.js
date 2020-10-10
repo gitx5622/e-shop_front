@@ -125,6 +125,7 @@ const Payment = ({ cartTotal }) => {
               );
             })}
           </div>
+          <br/>
         </div>
       </div>
     </div>
