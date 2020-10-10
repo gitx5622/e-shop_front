@@ -61,7 +61,7 @@ const ProductDetails = (props) => {
                 <h5>{product.discout_price}%</h5>
                 <br />
                 <h5 style={{ textDecoration: "line-through" }}>
-                  Kshs {product.price * (product.discout_price + 100)/ 100}
+                  Kshs {Math.ceil(product.price * (product.discout_price + 100)/ 100)}
                 </h5>
                 <br />
                 <h5>Kshs{product.price}</h5>
