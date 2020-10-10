@@ -155,7 +155,7 @@ const MainBody = (props) => {
                         <div className="price">
                           Kshs {formatPrice(product.price)}
                         </div>
-{/* 
+                        {/* 
                         <button
                           className="add-to-cart"
                           onClick={() => history.push(`product/${product.id}/`)}
@@ -310,13 +310,6 @@ const MainBody = (props) => {
                         Kshs {formatPrice(product.price)} &nbsp;
                         <span>20.00</span>
                       </div>
-
-                      <button
-                        className="add-to-cart"
-                        onClick={() => history.push(`product/${product.id}/`)}
-                      >
-                        ADD TO CART
-                      </button>
                     </div>
                   </div>
                 </div>
