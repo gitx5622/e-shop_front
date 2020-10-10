@@ -52,7 +52,7 @@ const Payment = ({ cartTotal }) => {
     <div className="container">
       <h3>OnlineShoppingKenya</h3>
       <div className="row">
-        <div className="col-md-6 offset-md-3">
+        <div className="col-md-10 offset-md-1">
           <div className="row">
             {addressSelector.authAddress.map((address) => {
               return (
@@ -81,7 +81,7 @@ const Payment = ({ cartTotal }) => {
             <p>All transactions are secure and encrypted.</p>
             <img
               src={mpesa}
-              width="50%"
+              width="100%"
               style={{ borderRadius: "10px" }}
               alt=""
             />
@@ -95,7 +95,7 @@ const Payment = ({ cartTotal }) => {
                     name="party_a"
                     onChange={handleChange}
                     className="form-control"
-                    placeholder="For example: 254712345678"
+                    placeholder="Enter Mpesa Number For example: 254712345678"
                   />
                 </div>
                 <br />
@@ -103,6 +103,7 @@ const Payment = ({ cartTotal }) => {
                   <input
                     type="text"
                     name="amount"
+                    disabled
                     value={cartTotal.totalPrice}
                     className="form-control"
                     placeholder="Amount"
