@@ -40,7 +40,7 @@ const Footer = () => {
           <div className="container">
             <div className="subscribe">
               <center>
-                {/* <h3><Icon type="message"  theme="twoTone" twoToneColor="#ff7a45" /> NEWSLETTER</h3> */}
+                <h3> NEWSLETTER</h3>
                 {currentState.Subscribe.error &&
                 currentState.Subscribe.error.Required_email ? (
                   <p className="text-danger">
@@ -122,16 +122,7 @@ const Footer = () => {
                   <strong>LINKS</strong>
                 </h6>
                 <ul>
-                  <li>
-                    <a
-                      href="/"
-                      style={{ color: "#c0c0c0" }}
-                      className="lang_trans"
-                      data-trans="#footer1_shipping-delivery"
-                    >
-                      Shipping &amp; Delivery
-                    </a>
-                  </li>
+                  <li>Shipping &amp; Delivery</li>
                   <li>Faq</li>
                   <li>Returns & Exchanges</li>
                   <li>Shipping & Delivery</li>
@@ -157,9 +148,9 @@ const Footer = () => {
                   <strong>STORE INFO</strong>
                 </h6>
                 <ul>
-                  <li>Fiot Fashion Demo Store Demo Store USA</li>
+                  <li>WamuPay Productions</li>
                   <li>Call Us: +254741790736</li>
-                  <li>Email Us: Support@E-Shop.Co.ke</li>
+                  <li>Email Us: support@eshop.co.ke</li>
                   <li>Fax: 123456</li>
                 </ul>
               </div>

@@ -64,7 +64,7 @@ const ProductDetails = (props) => {
                   Kshs {Math.ceil(product.price * (product.discout_price + 100)/ 100)}
                 </h5>
                 <br />
-                <h5>Kshs{product.price}</h5>
+                <h5>Kshs {product.price}</h5>
                 <p>{product.description}</p>
                 <button
                   type="submit"
