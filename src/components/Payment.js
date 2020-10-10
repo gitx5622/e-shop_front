@@ -20,8 +20,7 @@ const Payment = ({ cartTotal }) => {
   const sendPayment = (credentials) => dispatch(sendStkPush(credentials));
 
   const [payment, setPayment] = useState({
-    party_a: "",
-    amount: cartTotal.totalPrice,
+    party_a: ""
   });
 
   const handleChange = (e) => {
@@ -34,7 +33,7 @@ const Payment = ({ cartTotal }) => {
     e.preventDefault();
     sendPayment({
       party_a: payment.party_a,
-      amount: payment.amount,
+      amount: cartTotal.totalPrice
     });
     history.push("");
   };
@@ -81,7 +80,7 @@ const Payment = ({ cartTotal }) => {
             <p>All transactions are secure and encrypted.</p>
             <img
               src={mpesa}
-              width="70%"
+              width="50%"
               style={{ borderRadius: "10px" }}
               alt=""
             />
@@ -89,6 +88,7 @@ const Payment = ({ cartTotal }) => {
               <div className="card-header">M-Pesa Details</div>
               <br />
               <div className="container">
+              <h3>A sum of {cartTotal.totalPrice} will be drawn from your Mpesa account</h3>
                 <div className="form-group">
                   <input
                     type="text"
@@ -99,16 +99,6 @@ const Payment = ({ cartTotal }) => {
                   />
                 </div>
                 <br />
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="amount"
-                    disabled
-                    value={cartTotal.totalPrice}
-                    className="form-control"
-                    placeholder="Amount"
-                  />
-                </div>
               </div>
             </div>
             <br />
