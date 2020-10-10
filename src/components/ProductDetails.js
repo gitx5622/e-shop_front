@@ -45,8 +45,8 @@ const ProductDetails = (props) => {
       >
         <div className="row">
           <div className="media">
-            <div className="col details-image">
-              <div>
+            <div className="col-md-6 col-xs-12">
+              <div className=" details-image">
                 <img
                   src={product.image_url_1}
                   className="card-img-top mr-3"
@@ -54,8 +54,8 @@ const ProductDetails = (props) => {
                 />
               </div>
             </div>
-            <div className="col description">
-              <div className="media-body">
+            <div className="col-sm-6 col-xs-12">
+              <div className="media-body description">
                 <h3 className="mt-0">{product.title}</h3>
                 <h5>Allowed Discount:</h5>
                 <h5>{product.discout_price}%</h5>
