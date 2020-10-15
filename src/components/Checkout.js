@@ -60,9 +60,6 @@ const Checkout = () => {
     return <Redirect to="/payment" />;
   }
 
-  if (!currentState.isAuthenticated) {
-    return <Redirect to="/login" />;
-  }
   return (
     <div className="container">
       <h3>OnlineShoppingKenya</h3>
