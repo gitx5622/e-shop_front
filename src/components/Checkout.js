@@ -59,6 +59,10 @@ const Checkout = () => {
   if (addressSelector.authAddress.length > 0) {
     return <Redirect to="/payment" />;
   }
+
+  if (!currentState.isAuthenticated) {
+    return <Redirect to="/login" />;
+  }
   return (
     <div className="container">
       <h3>OnlineShoppingKenya</h3>
@@ -179,8 +183,7 @@ const Checkout = () => {
                 </div>
               </div>
             </div>
-            <button
-              type="submit"
+            <button type="submit"
               className="btn btn-primary btn-lg btn-checkout"
             >
               Continue to payment
